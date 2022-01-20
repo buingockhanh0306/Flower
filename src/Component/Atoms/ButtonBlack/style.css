@@ -1,0 +1,12 @@
+.btn-black{
+    padding: 6px 60px;
+    background-color: #000;
+    color: #fff;
+    border-radius: 4px;
+    border: none;
+    outline: none;
+}
+.btn{
+    width: 100%;
+    margin: 0 auto;
+}

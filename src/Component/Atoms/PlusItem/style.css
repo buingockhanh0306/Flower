@@ -1,0 +1,19 @@
+.plus-item
+{
+    margin-top: 16px;
+}
+.item-content
+{
+    display: flex;
+    justify-content: space-between;
+}
+.item-text{
+
+}
+.plus-icon{
+
+}
+.line
+{
+    margin-top: 10px;
+}

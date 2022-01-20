@@ -1,0 +1,12 @@
+.product-price{
+
+}
+.price-new{
+    font-weight: 700;
+    font-size: 18px;
+}
+.price-old{
+    font-size: 14px;
+    color: #666;
+    margin-left: 12px;
+}

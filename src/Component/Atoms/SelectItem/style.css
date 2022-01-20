@@ -1,0 +1,10 @@
+.select-item{
+    display: inline-block;
+    margin-right: 80px;
+}
+.arrow-icon
+{
+    display: inline-flex;
+    margin-left: 6px;
+    align-items: center;
+}

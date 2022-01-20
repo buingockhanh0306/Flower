@@ -1,0 +1,11 @@
+.location
+{
+    display: flex;
+    flex-direction: row;
+}
+.location-text
+{
+    display: inline-block;
+    margin-left: 8px;
+    font-size: 14px;
+}

@@ -1,0 +1,18 @@
+.group-icon
+{
+    display: flex;
+    margin-top: 10px;
+}
+.item-icon
+{
+    margin-right: 20px;
+}
+.item-icon:hover{
+    cursor: pointer;
+}
+.item-icon i{
+    color: #fff;
+}
+.center{
+    margin: 0 60px;
+}

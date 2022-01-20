@@ -1,0 +1,9 @@
+.large-image
+{
+    margin-top: 40px;
+}
+.large-image img
+{
+    width: 100%;
+    height: 300px;
+}

@@ -1,0 +1,19 @@
+.card-text
+{
+    text-align: center;
+    margin-top: 20px;
+    font-weight: 600;
+}
+.flower-price
+{
+    display: inline-block;
+    margin-right: 6px;
+}
+.image-card
+{
+    width: 100%;
+}
+.image-card img{
+    width: 260px;
+    height: 260px;
+}
