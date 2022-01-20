@@ -1,0 +1,18 @@
+
+.order-total
+{
+    /* margin-top: 40px; */
+}
+.order-line
+{
+    border: 1px solid #F6F7F9 ;
+}
+.total{
+    display: flex;
+    justify-content: space-between;
+    margin-top: 12px;
+}
+
+.total-price{
+    font-weight: 600;
+}

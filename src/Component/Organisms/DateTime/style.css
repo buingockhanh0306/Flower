@@ -1,0 +1,11 @@
+.select{
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+.address{
+    flex: 3;
+}
+.datetime{
+    margin-top: 40px;
+}

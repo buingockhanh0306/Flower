@@ -1,0 +1,15 @@
+.btnR{
+    padding: 11px 42px;
+    border: none;
+    outline: none;
+    background-color: #000;
+    border-radius: 6px;
+}
+.btnR-text{
+    display: inline-block;
+    margin: 0 20px;
+    color: #fff;
+}
+.btnR i{
+    color: #fff;
+}

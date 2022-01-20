@@ -1,0 +1,9 @@
+.btn-line{
+    border: 1px solid #F6F7F9 ;
+    margin: 40px 0;
+}
+.btnarr{
+    display: flex;
+    justify-content: space-between;
+    margin: 40px 0;
+}

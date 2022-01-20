@@ -1,0 +1,11 @@
+.checkout-address{
+    margin-top: 40px;
+}
+.select{
+    display: flex;
+    justify-content: space-between;
+}
+.address{
+    flex: 3;
+    margin-left: 30px;
+}

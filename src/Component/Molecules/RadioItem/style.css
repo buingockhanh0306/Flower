@@ -1,0 +1,27 @@
+.radio-item
+{
+    display: flex;
+    padding: 10px 10px;
+    border: 2px solid #F6F7F9;
+    border-radius: 6px;
+    margin: 20px 0;
+}
+.radio-item input{
+    align-items: center;
+    margin: auto 0;
+}
+.radio-text
+{
+    margin-left: 10px;
+}
+.line2, .line1{
+    margin: 0;
+    font-weight: 500;
+}
+.line2{
+    font-size: 12px;
+}
+.free{
+    margin-left: auto;
+    font-weight: 500;
+}

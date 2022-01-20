@@ -1,0 +1,13 @@
+.select-checkout
+{
+    display: flex;
+    background-color: #F9F9FB;
+    align-items: center;
+    justify-content: space-between;
+    padding: 4px 16px;
+    flex: 1;
+    margin-right: 30px;
+}
+.select-checkout p{
+    margin: 0;
+}

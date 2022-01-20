@@ -1,0 +1,32 @@
+.checkout-product
+{
+    padding: 16px;
+    border-radius: 10px;
+    border: 3px solid #F6F7F9;
+    width: 80%;
+    margin-left: auto;
+}
+.product-heading
+{
+    display: flex;
+    justify-content: space-between;
+}
+.product-img
+{
+    display: flex;
+    margin-top: 30px;
+}
+.product-img img{
+    width: 100px;
+    height: 100px;
+}
+.price{
+    margin-left: auto;
+}
+.count .product-name{
+    font-size: 16px;
+    font-weight: 400;
+}
+.total-group{
+    margin-top: 40px;
+}

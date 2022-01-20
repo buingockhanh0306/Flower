@@ -1,0 +1,11 @@
+.btnL{
+    padding: 11px 38px;
+    border: none;
+    outline: none;
+    background-color: #fff;
+
+}
+.btnL-text{
+    display: inline-block;
+    margin: 0 20px;
+}
