@@ -8,7 +8,7 @@ function ButtonColor(props) {
             <button className='btn-color_item' style={{backgroundColor: "blue"}}></button>
             <button className='btn-color_item' style={{backgroundColor: "red"}}></button>
             <button className='btn-color_item' style={{backgroundColor: "pink"}}></button>
-            <button className='btn-color_item' style={{backgroundColor: "orange"}}></button>
+            <button onClick={props.handleClick} className='btn-color_item' style={{backgroundColor: "orange"}}></button>
         </div>
     );
 }

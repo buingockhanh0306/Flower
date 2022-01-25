@@ -4,7 +4,7 @@ import './style.css'
 function ButtonBlack(props) {
     return (
         <div className='btn'>
-            <button className='btn-black'>{props.text}</button>
+            <button onClick={props.handleClick} className='btn-black'>{props.text}</button>
         </div>
     );
 }

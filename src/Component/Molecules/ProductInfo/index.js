@@ -27,15 +27,13 @@ function ProductInfo(props) {
     const changeURL = () => {
         navigate(`/checkout`)
     }
-
-
     const renderFlower = () => {
         return flowers.map((flower) => (
             <div>
                 <Heading text={flower.name} />
                 <Price priceNew={flower.price} />
                 <div className='line'></div>
-                <CountGroup />
+                <CountGroup/>
                 <div>Color: </div>
                 <ButtonColor/>
                 <div className='order'>

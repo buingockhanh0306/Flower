@@ -6,6 +6,7 @@ import MediumImage from '../../Molecules/MediumImage';
 import Gallery1 from '../../Organisms/Gallery1';
 import Footer from '../../Organisms/Footer';
 
+
 function Home(props) {
     return (
         <div className="grid">

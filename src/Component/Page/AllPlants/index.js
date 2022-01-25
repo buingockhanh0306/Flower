@@ -15,8 +15,6 @@ function AllPlants(props) {
                 <SelectAndCount/>
                 <div className='line'></div>
                 <ImageAllPlans/>
-
-                <ButtonBlack text='See more'/>
             </div>
         </div>
     );

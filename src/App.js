@@ -9,16 +9,12 @@ import { Link, Route, Routes } from 'react-router-dom';
 function App() {
   return (
     <div className="">
-      {/* <Home/> */}
       <Routes>
         <Route exact path='/' element={<Home/>}/>
         <Route path='/product' element={<ProductCard/>}/>
         <Route path='/allplant' element={<AllPlants/>}/>
         <Route path='/checkout' element={<CheckOut/>}/>
       </Routes>
-      {/* <ProductCard/> */}
-      {/* <AllPlants/> */}
-      {/* <CheckOut/> */}
     </div>
   );
 }
