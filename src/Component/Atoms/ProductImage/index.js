@@ -3,7 +3,7 @@ import './style.css'
 
 function ProductImage(props) {
     return (
-        <div className='product-img'>
+        <div className='product-img pro'>
             <img src={props.imgURL}/>
             <div className='row group-pick'>
                 <div className='col-4 pick-item'>

@@ -12,8 +12,47 @@
 .image-card
 {
     width: 100%;
+    position: relative;
 }
 .image-card img{
-    width: 260px;
-    height: 260px;
+    width: 260px !important;
+    height: 260px !important;
+}
+.flower-name{
+    border: none;
+    outline: none;
+    background-color: transparent;
+    display: block;
+    margin: 0 auto;
+}
+.image-card_icon{
+    position: absolute;
+    width: 100px;
+    justify-content: space-between;
+    bottom: 90px;
+    left: 80px;
+    display: none;
+    animation: fadeIn ease 0.3s;
+   
+    
+}
+@keyframes fadeIn {
+    from{
+        transform: translateY(100%);
+        opacity: 0
+    }
+    to{
+        transform: translateY(0);
+        opacity: 1
+    }
+}
+.image-card:hover .image-card_icon{
+    display: flex;
+    cursor: pointer;
+}
+.image-card_icon-item{
+    padding: 8px 11px;
+    background-color: #fff;
+    border: none;
+    outline: none;
 }

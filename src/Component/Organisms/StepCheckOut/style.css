@@ -6,7 +6,7 @@
 {
     border-top: 1px solid #666;
     width: 100px;
-    margin-left: 12px;
+    margin:0 12px;
 }
 .line-step_bold{
     border-top: 2px solid #000;

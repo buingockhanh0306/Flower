@@ -6,7 +6,7 @@ function ProductCard(props) {
     return (
         <div className="grid">
             <div className='container-md over'>
-            <HeaderCard/>
+            <HeaderCard text="Blue Tulips"/>
             <ContentCard/>
             </div>
         </div>

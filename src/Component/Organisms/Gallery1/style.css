@@ -1,6 +1,6 @@
 .gallery
 {
-    margin: 56px 0;
+    margin: 56px 0 !important;
     overflow: hidden;
 }
 .gallery-heading

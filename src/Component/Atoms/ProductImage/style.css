@@ -1,6 +1,6 @@
 img{
-    height: 440px;
-    width: 90%;
+    height: 440px !important;
+    width: 90% !important;
 }
 .group-pick
 {

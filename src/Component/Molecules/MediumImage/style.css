@@ -1,6 +1,6 @@
-img{
-    width: 100%;
-    height: 200px;
+.medium img{
+    width: 100% !important;
+    height: 200px !important;
 }
 .medium-img
 {

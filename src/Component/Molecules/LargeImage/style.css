@@ -4,6 +4,6 @@
 }
 .large-image img
 {
-    width: 100%;
-    height: 300px;
+    width: 100% !important;
+    height: 300px !important;
 }

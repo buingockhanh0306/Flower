@@ -17,7 +17,7 @@ function Gallery1(props) {
     const renderFlower = () => {
         return flowers.map(flower => (
             <div className='col-md-3 col-6' >
-                <ImageCard linkimg={flower.imageURL} name={flower.name} price={flower.price} />
+                <ImageCard id={flower.id} linkimg={flower.imageURL} name={flower.name} price={flower.price} />
             </div>
         ))
         
