@@ -21,7 +21,6 @@
     height: 100px !important;
 }
 .price{
-    margin-left: auto;
 }
 .count .checkout-name{
     font-size: 16px;
@@ -29,4 +28,45 @@
 }
 .total-group{
     margin-top: 40px;
+}
+.delete{
+    margin-left: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+
+}
+.delete-icon {
+    display: none;
+    border:none;
+    outline: none;
+    background-color: transparent;
+}
+.delete-icon i{
+    color: red;
+    animation: fade linear 0.3s;
+}
+.btn-delete{
+    border:none;
+    outline: none;
+    background-color: transparent;
+
+}
+@keyframes fade {
+    from{
+        opacity: 0;
+        transform: translateY(-200%);
+    }
+    to{
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+.length{
+    font-weight: 500;
+}
+.no-product img{
+   width: 100% !important;
+    height: 222px !important;
 }

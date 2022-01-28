@@ -1,0 +1,25 @@
+.medium-content{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    flex-direction: column;
+}
+.medium-title{
+    font-size: 24px;
+    font-weight: 600;
+}
+.medium-desc{
+    display: inline-block;
+    margin: 6px 0 24px;
+    font-weight: 500;
+}
+.medium-btn{
+    background-color: transparent;
+    color: #000;
+    text-decoration: none;
+}
+.medium-btn:hover{
+    cursor: pointer;
+}
