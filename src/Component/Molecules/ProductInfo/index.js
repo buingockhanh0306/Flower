@@ -10,18 +10,18 @@ import Heading from '../../Atoms/Heading';
 import ButtonColor from '../ButtonColor';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import { useCart } from 'react-use-cart';
-
+import { useDispatch } from 'react-redux';
+import { addProduct } from '../../../redux/actions';
+import { v4 as uuidv4 } from 'uuid';
 
 function ProductInfo(props) {
     const [flowers, setFlower] = useState([])
-    const {isEmpty, items, totalItems, cartTotal, updateItemQuantity, removeItem} = useCart()
+    const dispatch = useDispatch()
     const notify = () => toast("Đã thêm vào giỏ hàng");
     const idlocal = localStorage.getItem('id')
 
     const getFlowers = async () => {
         const flowers = await axios.get(`https://61e52378595afe00176e534e.mockapi.io/flower/flower?id=${idlocal}`)
-        console.log(flowers.data)
         setFlower(flowers.data)
     }
 
@@ -32,7 +32,12 @@ function ProductInfo(props) {
     // REDUX
     const handleAddProduct = () => {
         flowers.map(flower => {
-            addItem(flower)
+           dispatch(addProduct({
+               id: uuidv4(),
+               name: flower.name,
+               imageURL: flower.imageURL,
+               price: flower.price
+           }))
             notify();
         })
     }
@@ -41,7 +46,6 @@ function ProductInfo(props) {
         navigate(`/checkout`)
 
     }
-    const {addItem} = useCart()
     const renderFlower = () => {
         return flowers.map((flower) => (
             <div>
@@ -52,10 +56,7 @@ function ProductInfo(props) {
                 <div>Color: </div>
                 <ButtonColor />
                 <div className='order'>
-                    <button  onClick={handleAddProduct}  className='order-btn'
-                        id={flower.id} 
-                        key={flower.id} 
-                        item={flower}>
+                    <button onClick={handleAddProduct}  className='order-btn'>
                         Order now
                     </button>
                     <button onClick={changeURL} className='order-cart'><i class="fas fa-shopping-cart"></i></button>
