@@ -11,13 +11,13 @@ import ButtonColor from '../ButtonColor';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { v4 as uuidv4 } from 'uuid';
-import { connect } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { addToCart } from '../../../redux/cart/cartAction';
 
 function ProductInfo(props) {
     const [flowers, setFlower] = useState([])
-    // const dispatch = useDispatch()
-    // const notify = () => toast("Đã thêm vào giỏ hàng");
+    const dispatch = useDispatch()
+    const notify = () => toast("Đã thêm vào giỏ hàng");
     const idlocal = localStorage.getItem('id')
 
     const getFlowers = async () => {
@@ -30,17 +30,11 @@ function ProductInfo(props) {
     const navigate = useNavigate();
 
     // REDUX
-    // const handleAddProduct = () => {
-    //     flowers.map(flower => {
-    //        dispatch(addProduct({
-    //            id: uuidv4(),
-    //            name: flower.name,
-    //            imageURL: flower.imageURL,
-    //            price: flower.price
-    //        }))
-    //         notify();
-    //     })
-    // }
+    const handleAddProduct = (id) => {
+           dispatch(addToCart(id))
+            notify();
+        }
+    
 
     const changeURL = () => {
         navigate(`/checkout`)
@@ -56,7 +50,7 @@ function ProductInfo(props) {
                 <div>Color: </div>
                 <ButtonColor />
                 <div className='order'>
-                    <button onClick={()=> addToCart(flower.id)}  className='order-btn'>
+                    <button onClick={()=> handleAddProduct(flower.id)}  className='order-btn'>
                         Order now
                     </button>
                     <button onClick={changeURL} className='order-cart'><i class="fas fa-shopping-cart"></i></button>
@@ -73,22 +67,24 @@ function ProductInfo(props) {
         ))
 
     }
-
-
-
     return (
         <div className='infor'>
             {renderFlower()}
         </div>
-    );
+    )
 }
+    
 
-const mapDispatch = dispatch => {
-    return {
-        addToCart: (id) =>
-        dispatch(addToCart(id))
-    }
 
-}
 
-export default connect(null, mapDispatch)(ProductInfo);
+    
+
+// const mapDispatch = dispatch => {
+//     return {
+//         addToCart: (id) =>
+//         dispatch(addToCart(id))
+//     }
+
+// }
+
+export default ProductInfo;

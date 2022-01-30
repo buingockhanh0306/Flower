@@ -4,8 +4,12 @@
     justify-content: center;
     margin-top: 30px;
 }
-.navbar a{
+.navbar li{
     margin: 0 20px;
     text-decoration: none;
     color: #000;
+    list-style: none;
+}
+.navbar li:hover{
+    cursor: pointer;
 }
