@@ -43,7 +43,7 @@ function ProductInfo(props) {
     const renderFlower = () => {
         return  (
             <div>
-                <Heading text={flowers.name} />
+                <Heading categoryName={flowers.name} text={flowers.name} />
                 <Price priceNew={flowers.price} />
                 <div className='line'></div>
                 {/* <CountGroup /> */}

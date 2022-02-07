@@ -5,7 +5,7 @@ import './style.css'
 import flowerAPI from '../../../api/flowerAPI';
 import ClipLoader from "react-spinners/ClipLoader";
 
-function Gallery1(props) {
+function Gallery2(props) {
     const [flowers, setFlower] = useState([])
     const [loading, setLoading] = useState(true)
 
@@ -14,7 +14,7 @@ function Gallery1(props) {
     
     const getFlowers = async()=>
     {
-        const flowers = await flowerAPI.getAll()
+        const flowers = await flowerAPI.getAll({'category': 'gifts'})
         setFlower(flowers.data)
         setLoading(false)
     }
@@ -59,4 +59,4 @@ function Gallery1(props) {
     );
 }
 
-export default Gallery1;
+export default Gallery2;

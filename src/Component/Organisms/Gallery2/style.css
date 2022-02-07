@@ -1,0 +1,43 @@
+.gallery
+{
+    margin: 56px 0 !important;
+    overflow: hidden;
+}
+.gallery-heading
+{
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 30px;
+}
+.gallery-name
+{
+    font-weight: 700;
+
+}
+.arrow1{
+    margin-right: 20px;
+}
+.slide-img
+{
+    transition: .5s;
+    flex-wrap: nowrap;
+    width: 100%;
+    
+}
+.arrow-btn{
+    border: none;
+    outline: none;
+    background-color: transparent;
+}
+.see-more
+{
+    height: 100%;
+    width: 256px;
+    background-color: turquoise;
+}
+.loading {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+

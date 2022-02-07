@@ -4,6 +4,7 @@ import NavBar from '../../Molecules/NavBar';
 import LargeImage from '../../Molecules/LargeImage';
 import MediumImage from '../../Molecules/MediumImage';
 import Gallery1 from '../../Organisms/Gallery1';
+import Gallery2 from '../../Organisms/Gallery2';
 import Footer from '../../Organisms/Footer';
 
 
@@ -16,7 +17,7 @@ function Home(props) {
                 <LargeImage/>
                 <MediumImage/>
                 <Gallery1 galleryname='New'/>
-                <Gallery1 galleryname='Relevant'/>
+                <Gallery2 galleryname='Relevant'/>
             </div>
             <Footer/>
         </div>

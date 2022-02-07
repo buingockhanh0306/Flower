@@ -1,6 +1,10 @@
 .search-icon
 {
     margin-right: 24px;
-    display: inline-block;
+    display: flex;
+    align-items: center;
     width: 24px;
+    outline: none;
+    border: none;
+    background-color: transparent;
 }

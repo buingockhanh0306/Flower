@@ -5,6 +5,7 @@ import ButtonBlack from '../../Atoms/ButtonBlack';
 import './style.css'
 import { useNavigate } from 'react-router-dom';
 import ClipLoader from "react-spinners/ClipLoader";
+import flowerAPI from '../../../api/flowerAPI';
 
 
 
@@ -20,7 +21,7 @@ function ImageCategory(props) {
     }
 
     const getFlowers = async () => {
-        const flowers = await axios.get(`https://61e52378595afe00176e534e.mockapi.io/flower/flower?category=${props.category}`)
+        const flowers = await flowerAPI.getAll({'category': props.category})
         setFlower(flowers.data.slice(0, hiddenImage))
         setLoading(false)
     }
@@ -65,7 +66,6 @@ function ImageCategory(props) {
                     <ButtonBlack handleClick={() => loadMore()} text='See more' />
                 </div>
             </div>
-            {/* {loading ? ('') : <ReactBootstrap.Spinner animation="border" variant="primary" />} */}
 
         </>
 
