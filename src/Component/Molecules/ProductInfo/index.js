@@ -1,30 +1,30 @@
 import React, { useEffect } from 'react';
 import { BrowserRouter as Router, Switch, Route, Link, useNavigate, useLocation } from "react-router-dom";
 import { useState } from 'react/cjs/react.development';
-import CountGroup from '../../Atoms/CountGroup';
 import PlusItem from '../../Atoms/PlusItem';
 import Price from '../../Atoms/Price';
-import axios from 'axios';
 import './style.css'
 import Heading from '../../Atoms/Heading';
 import ButtonColor from '../ButtonColor';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import { v4 as uuidv4 } from 'uuid';
 import { useDispatch } from 'react-redux';
 import { addToCart } from '../../../redux/cart/cartAction';
+import flowerAPI from '../../../api/flowerAPI';
+import ClipLoader from "react-spinners/ClipLoader";
 
 function ProductInfo(props) {
     const [flowers, setFlower] = useState([])
+    const [loading, setLoading]= useState(true)
     const dispatch = useDispatch()
     const notify = () => toast("Đã thêm vào giỏ hàng");
     const idlocal = localStorage.getItem('id')
 
     const getFlowers = async () => {
-        const flowers = await axios.get(`https://61e52378595afe00176e534e.mockapi.io/flower/flower?id=${idlocal}`)
+        const flowers = await flowerAPI.getByID(idlocal)
         setFlower(flowers.data)
+        setLoading(false)        
     }
-
     useEffect(() => { getFlowers() }, [])
 
     const navigate = useNavigate();
@@ -41,16 +41,16 @@ function ProductInfo(props) {
 
     }
     const renderFlower = () => {
-        return flowers.map((flower) => (
+        return  (
             <div>
-                <Heading text={flower.name} />
-                <Price priceNew={flower.price} />
+                <Heading text={flowers.name} />
+                <Price priceNew={flowers.price} />
                 <div className='line'></div>
                 {/* <CountGroup /> */}
                 <div>Color: </div>
                 <ButtonColor />
                 <div className='order'>
-                    <button onClick={()=> handleAddProduct(flower.id)}  className='order-btn'>
+                    <button onClick={()=>handleAddProduct(flowers.id)} className='order-btn'>
                         Order now
                     </button>
                     <button onClick={changeURL} className='order-cart'><i class="fas fa-shopping-cart"></i></button>
@@ -64,27 +64,15 @@ function ProductInfo(props) {
             <ToastContainer autoClose={2000}/>
                 
             </div>
-        ))
+        )
 
     }
     return (
-        <div className='infor'>
+        loading ? <div className='loading'><ClipLoader color='#D78536' loading={loading} size={30} /></div> : <div className='infor'>
             {renderFlower()}
         </div>
     )
 }
     
-
-
-
-    
-
-// const mapDispatch = dispatch => {
-//     return {
-//         addToCart: (id) =>
-//         dispatch(addToCart(id))
-//     }
-
-// }
 
 export default ProductInfo;

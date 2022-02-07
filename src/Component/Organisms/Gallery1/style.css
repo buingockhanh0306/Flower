@@ -22,6 +22,7 @@
     transition: .5s;
     flex-wrap: nowrap;
     width: 100%;
+    
 }
 .arrow-btn{
     border: none;
@@ -34,5 +35,9 @@
     width: 256px;
     background-color: turquoise;
 }
-
+.loading {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 

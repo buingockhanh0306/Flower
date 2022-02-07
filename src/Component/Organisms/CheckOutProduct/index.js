@@ -7,6 +7,7 @@ import OrderTotal from '../../Molecules/OrderTotal';
 import { useDispatch, useSelector } from 'react-redux';
 import { adjustQty, RemoveFromCart } from '../../../redux/cart/cartAction';
 import getData from '../../../data';
+import flowerAPI from '../../../api/flowerAPI';
 
 function CheckOutProduct(props) {
 
@@ -20,7 +21,7 @@ function CheckOutProduct(props) {
     const idlocal = localStorage.getItem('id')
     const getFlowers = async()=>
     {
-        const flowers = await axios.get(`https://61e52378595afe00176e534e.mockapi.io/flower/flower?id=${idlocal}`)
+        const flowers = await flowerAPI.getByID(idlocal)
         setFlower(flowers.data)
         setTotal(localStorage.getItem('price'))
     }
@@ -65,9 +66,9 @@ function CheckOutProduct(props) {
             <div className='count'>
                 <p className='checkout-name'>{flower.name}</p>
                 <div className='plus'>
-                    <button onClick={()=>UpdateQuality (flower.id, flower.qty-1)} className='sub-add'><i class="fas fa-minus"></i></button>
+                    <button onClick={()=>UpdateQuality(flower.id, flower.qty>1 ? flower.qty-1: 1)} className='sub-add'><i class="fas fa-minus"></i></button>
                     <span className='count'>{flower.qty}</span>
-                    <button onClick={()=>UpdateQuality (flower.id, flower.qty+1)} className='sub-add'><i class="fas fa-plus"></i></button>
+                    <button onClick={()=>UpdateQuality(flower.id, flower.qty+1)} className='sub-add'><i class="fas fa-plus"></i></button>
                 </div>
             </div>
             <div className='delete'>

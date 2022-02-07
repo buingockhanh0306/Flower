@@ -2,20 +2,25 @@ import React, {useEffect, useState} from 'react';
 import ImageCard from '../../Molecules/ImageCard';
 import axios from 'axios';
 import './style.css'
+import flowerAPI from '../../../api/flowerAPI';
+import ClipLoader from "react-spinners/ClipLoader";
 
 function Gallery1(props) {
     const [flowers, setFlower] = useState([])
+    const [loading, setLoading] = useState(true)
+
     const [x, setX] = useState(0);
 
     
     const getFlowers = async()=>
     {
-        const flowers = await axios.get('https://61e52378595afe00176e534e.mockapi.io/flower/flower')
-        console.log(flowers.data)
+        const flowers = await flowerAPI.getAll()
         setFlower(flowers.data)
+        setLoading(false)
     }
     const renderFlower = () => {
-        return flowers.map(flower => (
+        return loading ? <div className='loading'><ClipLoader color='#D78536' loading={loading} size={30} /></div> : 
+        flowers.map(flower => (
             <div className='col-md-3 col-6' >
                 <ImageCard id={flower.id} linkimg={flower.imageURL} name={flower.name} price={flower.price} />
             </div>

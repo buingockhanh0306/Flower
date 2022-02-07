@@ -1,0 +1,27 @@
+.drop-list
+{
+    display: inline-block;
+    position: relative;
+}
+.drop-list:hover{
+    cursor: pointer;
+}
+.drop-list:hover .drop-down
+{
+    display: block;
+}
+.drop-down
+{
+    position: absolute;
+    top: 24px;
+    left: 0px;
+    z-index: 100;
+    background-color: #fff;
+    display: none;
+}
+.sel{
+    display: inline-block;
+    border: none;
+    outline: none;
+    cursor: pointer;
+}

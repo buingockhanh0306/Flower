@@ -8,9 +8,10 @@ function ImageCard(props) {
 
     const changeURL =()=>
     {
-        navigate(`/product`)
         localStorage.setItem('id', props.id)     
         localStorage.setItem('price', props.price)     
+        localStorage.setItem('name', props.name)     
+        navigate(`/product`)
     }
 
     return (

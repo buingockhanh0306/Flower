@@ -8,3 +8,7 @@
     margin-left: 6px;
     align-items: center;
 }
+.select-item:hover .drop-down
+{
+    display: block;
+}

@@ -1,23 +1,22 @@
 import React from 'react';
-import ButtonBlack from '../../Atoms/ButtonBlack';
-import Title from '../../Atoms/Title';
+import { Outlet } from 'react-router-dom';
 import HeaderChild from '../../Organisms/HeaderChild';
-import ImageAllPlans from '../../Organisms/ImageAllPlants';
+import Title from '../../Atoms/Title';
 import SelectAndCount from '../../Organisms/SelectAndCount';
-import './style.css'
 
-function AllPlants(props) {
+function Layout(props) {
+    const category = localStorage.getItem('category')
     return (
         <div className="grid">
             <div className='container-md'>
-                <HeaderChild text='Plants'/>
+                <HeaderChild text={category}/>
                 <Title title='All Plants'/>
                 <SelectAndCount/>
                 <div className='line'></div>
-                <ImageAllPlans/>
+                <Outlet/>
             </div>
         </div>
     );
 }
 
-export default AllPlants;
+export default Layout;
