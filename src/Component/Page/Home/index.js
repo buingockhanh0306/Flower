@@ -12,14 +12,12 @@ function Home(props) {
     return (
         <div className="grid">
             <div className='container-md over'>
-                <Header/>
-                <NavBar/>
+                
                 <LargeImage/>
                 <MediumImage/>
                 <Gallery1 galleryname='New'/>
                 <Gallery2 galleryname='Relevant'/>
             </div>
-            <Footer/>
         </div>
     );
 }

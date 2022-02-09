@@ -46,7 +46,7 @@ function Gallery2(props) {
                          <i class="arrow1 fas fa-long-arrow-alt-left"></i>
                     </button>
                     <button className='arrow-btn' onClick={toRight}>
-                         <i class="fas fa-long-arrow-alt-right"></i>
+                         <i class="arrow2 fas fa-long-arrow-alt-right"></i>
                     </button>
                 </div>
             </div>

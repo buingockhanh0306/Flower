@@ -1,5 +1,6 @@
 import React from 'react';
 import './style.css'
+import { Link } from 'react-router-dom';
 
 function LargeImage(props) {
     return (
@@ -8,10 +9,10 @@ function LargeImage(props) {
             <div className='large-image_content'>
                 <span className='content-title'>40% OFF</span>
                 <span className='content-desc'>Best deals this week. Fresh flower, plants and gifts</span>
-                <button className='content-btn'>
+                <Link to='/flowers' className='content-btn'>
                     Shop now
                     <i class="arr fas fa-long-arrow-alt-right"></i>
-                </button>
+                </Link>
             </div>
         </div>
     );

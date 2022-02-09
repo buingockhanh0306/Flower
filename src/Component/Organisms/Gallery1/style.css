@@ -9,6 +9,7 @@
     justify-content: space-between;
     margin-bottom: 30px;
 }
+
 .gallery-name
 {
     font-weight: 700;
@@ -16,6 +17,10 @@
 }
 .arrow1{
     margin-right: 20px;
+}
+.arrow1, .arrow2
+{
+    color: #999;
 }
 .slide-img
 {

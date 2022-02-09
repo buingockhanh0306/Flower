@@ -1,0 +1,25 @@
+.about{
+    margin: 50px 0;
+}
+.about-text{
+    text-align: justify;
+}
+.about-arr
+{
+    margin-top: 30px;
+}
+.about-img img{
+    margin-left: 50px;
+}
+.dirc
+{
+    flex-direction: row-reverse;
+}
+.bgr{
+    background-color: #999;
+}
+.about-heading{
+    text-align: center;
+    margin: 50px 0;
+}
+

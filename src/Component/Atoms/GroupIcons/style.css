@@ -1,10 +1,27 @@
-.search-icon
+
+.group-icon
+{
+    /* width: 500px; */
+}
+.search-icon, .cart-icon
 {
     margin-right: 24px;
     display: flex;
+    justify-content: flex-end;
     align-items: center;
     width: 24px;
     outline: none;
     border: none;
     background-color: transparent;
+}
+.input-search
+{
+    border: none;
+    border-bottom: 1px solid #000;
+    outline: none;
+    transform: translateY(-10px);
+    display: block;
+}
+.active{
+    display: block;
 }

@@ -7,15 +7,22 @@ function GroupIcons(props) {
     const changeURL = () => {
         navigate(`/checkout`)
     }
+    const handleHiddenSearch = () =>
+    {
+        const input_search = document.querySelector('.input-search')
+        input_search.classList.add("active")
+    }
     return (
+        <>
         <div className='group-icon'>
-            <button className='search-icon'>
+            <button onClick={()=>handleHiddenSearch()} className='search-icon'>
                 <i class="fas fa-search"></i>
             </button>
-            <button onClick={() =>changeURL()} className='search-icon'>
+            <button onClick={() =>changeURL()} className='cart-icon'>
                 <i class="fas fa-shopping-cart"></i>
             </button>
         </div>
+        </>
     );
 }
 
