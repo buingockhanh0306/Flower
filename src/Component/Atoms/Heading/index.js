@@ -1,11 +1,12 @@
 import React from 'react';
 import './style.css'
+import { Link } from 'react-router-dom';
 
 function Heading(props) {
     return (
-        <div className='heading'>
+        <Link to="/" className='heading'>
             {props.text}
-        </div>
+        </Link>
     );
 }
 

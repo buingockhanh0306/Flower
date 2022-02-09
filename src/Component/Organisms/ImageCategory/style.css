@@ -29,7 +29,8 @@
     width: 256px;
     background-color: turquoise;
 }
-.thu{
-    height: 120vh;
-}
 
+.image-card
+{
+    margin-bottom: 50px;
+}

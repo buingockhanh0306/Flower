@@ -3,10 +3,12 @@ import GroupSelect from '../../Molecules/GroupSelect';
 import './style.css'
 
 function SelectAndCount(props) {
+    const count = localStorage.getItem('count')
+    console.log('count = ', count)
     return (
         <div className='select-count'>
             <GroupSelect/>
-            <div className='count'>24 items</div>
+            <div className='count'>{count} items</div>
         </div>
     );
 }

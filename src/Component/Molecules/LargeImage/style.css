@@ -34,6 +34,11 @@
     padding: 10px 20px;
     width: 138px;
     border-radius: 8px;
+    text-decoration: none;
+}
+.content-btn:hover{
+    background-color: #333;
+    color: #fff;
 }
 .arr{
     margin-left: 10px;

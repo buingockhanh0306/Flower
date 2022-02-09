@@ -8,13 +8,14 @@ import store from './redux/store';
 import {Provider} from 'react-redux'
 import Home from './Component/Page/Home';
 import ProductCard from './Component/Page/ProductCard';
-import Layout from './Component/Page/LayOut/Layout';
+import LayoutPage from './Component/Page/LayOut/LayoutPage/LayoutPage';
 import AllPlants from './Component/Page/ChildrenPage/AllPlants';
 import CheckOut from './Component/Page/CheckOut';
 import AllGift from './Component/Page/ChildrenPage/AllGift';
 import Disconts from './Component/Page/ChildrenPage/Disconts';
 import AboutUs from './Component/Page/ChildrenPage/AboutUs';
 import AllFlower from './Component/Page/ChildrenPage/AllFlower'
+import LayoutHome from './Component/Page/LayOut/LayoutHome';
 
 
 ReactDOM.render(
@@ -22,17 +23,25 @@ ReactDOM.render(
       <Provider store={store}>
         <BrowserRouter>
           <Routes>
-              <Route exact path='/' element={<App/>}/>
-              <Route path='/product' element={<ProductCard/>}/>
-              <Route path='/' element={<Layout/>}>
-                <Route path='/flowers' element={<AllFlower/>}/>
-                <Route path='/plants' element={<AllPlants/>}/>
-                <Route path='/gifts' element={<AllGift/>}/>
+
+                <Route path='/' element={<LayoutHome/>}>
+              <Route path='/' element={<Home/>}/>
                 <Route path='/disconts' element={<Disconts/>}/>
                 <Route path='/about' element={<AboutUs/>}/>
               </Route>
+
+
+              <Route path='/' element={<LayoutPage/>}>
+                <Route path='/flowers' element={<AllFlower/>}/>
+                <Route path='/plants' element={<AllPlants/>}/>
+                <Route path='/gifts' element={<AllGift/>}/>
+              </Route>
+
+
+              <Route path='/product' element={<ProductCard/>}/>
               <Route path='/checkout' element={<CheckOut/>}/>
-            </Routes>
+
+          </Routes>
         </BrowserRouter>
           </Provider>
   </React.StrictMode>,

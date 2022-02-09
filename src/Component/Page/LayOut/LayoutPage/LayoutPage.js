@@ -1,10 +1,10 @@
 import React from 'react';
 import { Outlet } from 'react-router-dom';
-import HeaderChild from '../../Organisms/HeaderChild';
-import Title from '../../Atoms/Title';
-import SelectAndCount from '../../Organisms/SelectAndCount';
+import HeaderChild from '../../../Organisms/HeaderChild';
+import Title from '../../../Atoms/Title';
+import SelectAndCount from '../../../Organisms/SelectAndCount';
 
-function Layout(props) {
+function LayoutPage(props) {
     const category = localStorage.getItem('category')
     return (
         <div className="grid">
@@ -19,4 +19,4 @@ function Layout(props) {
     );
 }
 
-export default Layout;
+export default LayoutPage;

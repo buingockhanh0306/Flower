@@ -14,21 +14,20 @@ function GroupSelect(props) {
     const getFlowers = async () => {
         const flowers = await flowerAPI.getAll()
         setFlower(flowers.data)
-        console.log("data",flowers.data)
     }
     
     useEffect(() => { getFlowers() }, [])
 
     const renderColor = ()=>
     {
-        flowers.map(flower =>
-            {
-                console.log(flower)
-                return(
-                    <Dropdown item={flower.color}/>
-                )
-            }
-        )
+        // flowers.map(flower =>
+        //     {
+        //         console.log(flower)
+        //         return(
+        //             <Dropdown item={flower.color}/>
+        //         )
+        //     }
+        // )
     }
     return (
         <div className='group-select'>

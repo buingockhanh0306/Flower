@@ -1,6 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import ImageCard from '../../Molecules/ImageCard';
-import axios from 'axios';
 import ButtonBlack from '../../Atoms/ButtonBlack';
 import './style.css'
 import { useNavigate } from 'react-router-dom';
@@ -13,27 +11,44 @@ function ImageCategory(props) {
     const [flowers, setFlower] = useState([])
     const [loading, setLoading] = useState(true)
     const [hiddenImage, setHiddenImage] = useState(4);
+    const [textBtn, SetTextBtn] = useState('Load More')
+    // const [count, setCount] = useState(0)
     const navigate = useNavigate();
 
 
     const loadMore = () => {
-        setHiddenImage(hiddenImage + hiddenImage)
+        hiddenImage > 4 ? setHiddenImage(4):(setHiddenImage(hiddenImage+hiddenImage))
+        if(hiddenImage>4)
+        {
+            setHiddenImage(4)
+            setLoading(true)
+            SetTextBtn('Load More')
+        }
+        else{
+            setHiddenImage(hiddenImage+hiddenImage);
+            setLoading(true)
+            SetTextBtn('Hide Less')
+        }
     }
-
     const getFlowers = async () => {
         const flowers = await flowerAPI.getAll({'category': props.category})
         setFlower(flowers.data.slice(0, hiddenImage))
         setLoading(false)
     }
-
+    
+    
+    
+    useEffect(() => { getFlowers() }, [hiddenImage])
+    
     const changeURL =(id, price, name)=>
     {
+        const count = flowers.length
+        localStorage.setItem('count', count) 
         localStorage.setItem('id', id)     
         localStorage.setItem('price', price)     
-        localStorage.setItem('name', name)     
+        localStorage.setItem('name', name)  
         navigate(`/product`)
     }
-
     const renderFlower = () => {
         return flowers.map(flower => (
             <div className='col-md-3 col-6' >
@@ -53,7 +68,7 @@ function ImageCategory(props) {
         ))
 
     }
-    useEffect(() => { getFlowers() }, [hiddenImage])
+
     return (
         loading ? <div className='loading'><ClipLoader color='#D78536' loading={loading} size={30} /></div> :
         <>
@@ -61,9 +76,9 @@ function ImageCategory(props) {
                 <div className='gallery-heading'>
                     <div className='gallery-name'>{props.galleryname}</div>
                 </div>
-                <div className='row thu'>
+                <div className='row'>
                     {renderFlower()}
-                    <ButtonBlack handleClick={() => loadMore()} text='See more' />
+                    <ButtonBlack handleClick={() => loadMore()} text={textBtn} />
                 </div>
             </div>
 

@@ -7,11 +7,11 @@ function MediumImage(props) {
         <div className='medium-img row'>
             <div className='col md-6 medium'>
                 <img src='assets/images/left.jpg'/>
-                <MediumImageContent title='Nice little gifts' desc='for loved one'/>
+                <MediumImageContent toLink='/gifts' title='Nice little gifts' desc='for loved one'/>
             </div>
             <div className='col md-6 medium'>
                 <img src='assets/images/right.jpg'/>
-                <MediumImageContent title='Plants' desc='for home comfort'/>
+                <MediumImageContent toLink='/plants' title='Plants' desc='for home comfort'/>
             </div>
             
         </div>
