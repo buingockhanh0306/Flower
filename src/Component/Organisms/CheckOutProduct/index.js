@@ -6,7 +6,6 @@ import axios from 'axios';
 import OrderTotal from '../../Molecules/OrderTotal';
 import { useDispatch, useSelector } from 'react-redux';
 import { adjustQty, RemoveFromCart } from '../../../redux/cart/cartAction';
-import getData from '../../../data';
 import flowerAPI from '../../../api/flowerAPI';
 
 function CheckOutProduct(props) {
@@ -15,7 +14,10 @@ function CheckOutProduct(props) {
     const dispatch = useDispatch()
     const [total, setTotal] = useState(localStorage.getItem('price'))
     const [hidden, setHidden] = useState(0)
-    const todoCart = useSelector((state) => state.cart.cart)
+    const todoCart = JSON.parse(localStorage.getItem('todoCart'))
+    const cartSelector = useSelector((state) => state.cart.cart)
+
+    localStorage.setItem('todoCart',JSON.stringify(cartSelector))
 
     const [flowers, setFlower] = useState([])
     const idlocal = localStorage.getItem('id')

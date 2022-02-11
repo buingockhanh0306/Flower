@@ -1,7 +1,11 @@
 
-.group-icon
+.group-icon-header
 {
-    /* width: 500px; */
+    display: flex;
+    justify-content: flex-end;
+    line-height: 56px;
+    height: 56px;
+    margin-top: 0;
 }
 .search-icon, .cart-icon
 {
@@ -16,12 +20,27 @@
 }
 .input-search
 {
+    display:  none;
+    height: 26px;
+    transform: translateY(10px);
     border: none;
     border-bottom: 1px solid #000;
     outline: none;
-    transform: translateY(-10px);
-    display: block;
+    margin-right: 10px;
+    width: 200px;
+    animation: hiddenSearch linear 0.5s;
+}
+@keyframes hiddenSearch {
+    from
+        {
+
+            opacity: 0;
+        }
+    
+    to{
+        opacity: 1;
+    }
 }
 .active{
-    display: block;
+    display: inline-block;
 }
