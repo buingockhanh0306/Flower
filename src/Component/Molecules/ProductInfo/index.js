@@ -36,7 +36,8 @@ function ProductInfo(props) {
         }
     
 
-    const changeURL = () => {
+    const changeURL = (id) => {
+        localStorage.setItem('idProd', id)
         navigate(`/checkout`)
 
     }
@@ -53,7 +54,7 @@ function ProductInfo(props) {
                     <button onClick={()=>handleAddProduct(flowers.id)} className='order-btn'>
                         Order now
                     </button>
-                    <button onClick={changeURL} className='order-cart'><i class="fas fa-shopping-cart"></i></button>
+                    <button onClick={()=>changeURL(flowers.id)} className='order-cart'><i class="fas fa-shopping-cart"></i></button>
                 </div>
                 <div className='group-plus'>
                     <PlusItem text='Bouquest contens' />

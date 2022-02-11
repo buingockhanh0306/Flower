@@ -10,11 +10,14 @@ function GroupIcons(props) {
     const handleHiddenSearch = () =>
     {
         const input_search = document.querySelector('.input-search')
-        input_search.classList.add("active")
+        const active = document.querySelector('.active')
+        console.log(active)
+        active === null ? input_search.classList.add("active"): input_search.classList.remove("active")
     }
     return (
         <>
-        <div className='group-icon'>
+        <div className='group-icon-header'>
+            <input className='input-search' placeholder='Tìm kiếm...'/>
             <button onClick={()=>handleHiddenSearch()} className='search-icon'>
                 <i class="fas fa-search"></i>
             </button>
