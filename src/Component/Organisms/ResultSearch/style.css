@@ -1,0 +1,39 @@
+.gallery
+{
+    margin: 16px 0;
+    /* overflow: hidden; */
+}
+.gallery-heading
+{
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 30px;
+}
+.gallery-name
+{
+    font-weight: 700;
+
+}
+.gallery-name span{
+    color: blue;
+}
+.arrow1{
+    margin-right: 20px;
+}
+
+.arrow-btn{
+    border: none;
+    outline: none;
+    background-color: transparent;
+}
+.see-more
+{
+    height: 100%;
+    width: 256px;
+    background-color: turquoise;
+}
+
+.image-card
+{
+    margin-bottom: 50px;
+}

@@ -168,8 +168,8 @@ const initState ={
     currentItem: null
 }
 
-initState.cart = JSON.parse(localStorage.getItem('todoCart'))
-const cartLocal = JSON.parse(localStorage.getItem('todoCart'))
+const cartLocal = localStorage.getItem('todoCart')
+initState.cart = JSON.parse(cartLocal)
 const cartReducer = (state=initState, action) =>
 {
     switch (action.type){

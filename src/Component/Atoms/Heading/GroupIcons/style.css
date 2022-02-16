@@ -31,7 +31,7 @@
     outline: none;
     margin-right: 10px;
     width: 200px;
-    animation: hiddenSearch linear 0.8s;
+    animation: hiddenSearch linear 0.5s;
 }
 .search-btn
 {
@@ -41,23 +41,6 @@
 }
 .search-btn i{
     color: blue;
-}
-
-.open{
-
-}
-.close{
-    display: none;
-    animation: handleRotate linear 0.2s;
-}
-@keyframes handleRotate
-{
-    from{
-        transform: rotate(45deg);
-    }
-    to{       
-        transform: rotate(0);
-    }
 }
 @keyframes hiddenSearch {
     from

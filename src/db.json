@@ -1,7 +1,7 @@
 [
     {
      "name": "White Rose",
-     "color": "white",  
+     "color": "white",
      "price": "40",
      "imageURL": "assets/images/flower1.jpg",
      "category": "flowers",
@@ -32,7 +32,7 @@
      "id": "4"
     },
     {
-     "name": "White Rose 1",
+     "name": "White Orange Rose",
      "color": "white",
      "price": "40",
      "imageURL": "assets/images/flower19.jpg",
@@ -40,7 +40,7 @@
      "id": "5"
     },
     {
-     "name": "White Rose 2",
+     "name": "Blue White Rose",
      "color": "white",
      "price": "41",
      "imageURL": "assets/images/flower10.jpg",
@@ -48,7 +48,7 @@
      "id": "6"
     },
     {
-     "name": "White Rose 3",
+     "name": "White Flower",
      "color": "white",
      "price": "42",
      "imageURL": "assets/images/flower5.jpg",
@@ -56,7 +56,15 @@
      "id": "7"
     },
     {
-     "name": "White Rose 4",
+     "name": "Red Gifts",
+     "color": "red",
+     "price": "43",
+     "imageURL": "assets/images/gift8.jpg",
+     "category": "gifts",
+     "id": "24"
+    },
+    {
+     "name": "Orange Rose",
      "color": "white",
      "price": "43",
      "imageURL": "assets/images/flower20.jpg",
@@ -64,7 +72,7 @@
      "id": "8"
     },
     {
-     "name": "White Rose 4",
+     "name": "Green Plant",
      "color": "white",
      "price": "43",
      "imageURL": "assets/images/plant2.jpg",
@@ -72,7 +80,15 @@
      "id": "10"
     },
     {
-     "name": "White Rose 4",
+    "name": "White Gifts",
+    "color": "yellow",
+    "price": "43",
+    "imageURL": "assets/images/gift7.jpg",
+    "category": "gifts",
+    "id": "23"
+    },
+    {
+     "name": "Green Plant",
      "color": "red",
      "price": "43",
      "imageURL": "assets/images/plant3.jpg",
@@ -80,7 +96,7 @@
      "id": "11"
     },
     {
-     "name": "White Rose 4",
+     "name": "Green Plant",
      "color": "red",
      "price": "43",
      "imageURL": "assets/images/plant4.jpg",
@@ -88,7 +104,7 @@
      "id": "12"
     },
     {
-     "name": "White Rose 4",
+     "name": "Green Plant",
      "color": "red",
      "price": "43",
      "imageURL": "assets/images/plant5.jpg",
@@ -96,7 +112,7 @@
      "id": "13"
     },
     {
-     "name": "White Rose 4",
+     "name": "Green Plant",
      "color": "red",
      "price": "43",
      "imageURL": "assets/images/plant6.jpg",
@@ -104,7 +120,7 @@
      "id": "14"
     },
     {
-     "name": "White Rose 4",
+     "name": "Green Plant",
      "color": "red",
      "price": "43",
      "imageURL": "assets/images/plant7.jpg",
@@ -112,7 +128,7 @@
      "id": "15"
     },
     {
-     "name": "White Rose 4",
+     "name": "Green Plant",
      "color": "red",
      "price": "43",
      "imageURL": "assets/images/plant8.jpg",
@@ -120,7 +136,7 @@
      "id": "16"
     },
     {
-     "name": "White Rose 4",
+     "name": "Five Gifts",
      "color": "red",
      "price": "43",
      "imageURL": "assets/images/gift1.jpg",
@@ -128,7 +144,7 @@
      "id": "17"
     },
     {
-     "name": "White Rose 4",
+     "name": "Eight Gifts",
      "color": "red",
      "price": "43",
      "imageURL": "assets/images/gift2.jpg",
@@ -136,7 +152,7 @@
      "id": "18"
     },
     {
-     "name": "White Rose 4",
+     "name": "Blue Gift",
      "color": "green",
      "price": "43",
      "imageURL": "assets/images/gift3.jpg",
@@ -144,7 +160,7 @@
      "id": "19"
     },
     {
-     "name": "White Rose 4",
+     "name": "Gifts",
      "color": "red",
      "price": "43",
      "imageURL": "assets/images/gift4.jpg",
@@ -152,7 +168,7 @@
      "id": "20"
     },
     {
-     "name": "White Rose 4",
+     "name": "Three Gifts",
      "color": "red",
      "price": "43",
      "imageURL": "assets/images/gift5.jpg",
@@ -160,27 +176,12 @@
      "id": "21"
     },
     {
-     "name": "White Rose 4",
+     "name": "Four Gifts",
      "color": "red",
      "price": "43",
      "imageURL": "assets/images/gift6.jpg",
      "category": "gifts",
      "id": "22"
-    },
-    {
-     "name": "White Rose 4",
-     "color": "yellow",
-     "price": "43",
-     "imageURL": "assets/images/gift7.jpg",
-     "category": "gifts",
-     "id": "23"
-    },
-    {
-     "name": "White Rose 4",
-     "color": "red",
-     "price": "43",
-     "imageURL": "assets/images/gift8.jpg",
-     "category": "gifts",
-     "id": "24"
     }
+
    ]
