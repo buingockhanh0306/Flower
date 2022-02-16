@@ -38,7 +38,7 @@ function ResultSearch(props) {
     
     
     
-    useEffect(() => { getFlowers() }, [hiddenImage])
+    useEffect(() => { getFlowers() }, [hiddenImage, nameValue])
     
     const changeURL =(id, price, name)=>
     {
