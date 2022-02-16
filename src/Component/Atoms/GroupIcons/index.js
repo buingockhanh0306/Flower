@@ -41,7 +41,6 @@ function GroupIcons(props) {
                 <button onClick={()=> handleSearch()} className='search-btn'><i class="fas fa-search"></i></button>
             </div>
 
-            {/* <button className='close-search'><i class="fa-solid fa-xmark"></i></button>  */}
 
             <button onClick={()=>handleHiddenSearch()} className='search-icon'>
                 <i class="open fas fa-search"></i>

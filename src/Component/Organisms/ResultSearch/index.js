@@ -51,7 +51,7 @@ function ResultSearch(props) {
     }
     const renderFlower = () => {
         return flowers.map(flower => (
-            <div className='col-md-3 col-6' >
+            <div key={flower.id} className='col-md-3 col-6' >
                 <div className='image-card'>
                     <img src={flower.imageURL} />
                     <div className='card-text'>

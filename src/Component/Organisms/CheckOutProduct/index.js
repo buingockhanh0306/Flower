@@ -60,10 +60,9 @@ function CheckOutProduct(props) {
     }
 
     const renderFlower = () => {
-        console.log('chui vao day', todoCart)
         if(todoCart.length === 0) return <div className='no-product'><img src='assets/images/empty_product.png'/></div>
         return todoCart.map((flower) => (
-            <div className='checkout-img'>
+            <div key={flower.id} className='checkout-img'>
             <img src={flower.imageURL}/>
             <div className='count'>
                 <p className='checkout-name'>{flower.name}</p>

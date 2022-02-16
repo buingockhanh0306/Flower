@@ -21,7 +21,7 @@ function Gallery1(props) {
     const renderFlower = () => {
         return loading ? <div className='loading'><ClipLoader color='#D78536' loading={loading} size={30} /></div> : 
         flowers.map(flower => (
-            <div className='col-md-3 col-6' >
+            <div key={flower.id} className='col-md-3 col-6' >
                 <ImageCard id={flower.id} linkimg={flower.imageURL} name={flower.name} price={flower.price} />
             </div>
         ))
