@@ -9,11 +9,22 @@ function GroupIcons(props) {
     const changeURL = () => {
         navigate(`/checkout`)
     }
+
     const handleSearch = ()=>
     {
         localStorage.setItem('search_value', value)
         navigate('/search')
 
+    }
+
+    const handleKeyPress = (event)=>
+    {
+        if(event.key==='Enter')
+        {
+            // console.log('Đã bấm enter')
+            setValue(event.target.value)
+            handleSearch()
+        }
     }
     const handleHiddenSearch = () =>
     {
@@ -37,7 +48,7 @@ function GroupIcons(props) {
         <>
         <div className='group-icon-header'>
             <div className='input-search-group'>
-                <input onChange={e => setValue(e.target.value)} className='input-search' placeholder='Tìm kiếm...'/>
+                <input onKeyPress={(e)=>handleKeyPress(e)} onChange={e => setValue(e.target.value)} className='input-search' placeholder='Tìm kiếm...'/>
                 <button onClick={()=> handleSearch()} className='search-btn'><i class="fas fa-search"></i></button>
             </div>
 
