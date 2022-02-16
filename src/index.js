@@ -16,6 +16,7 @@ import Disconts from './Component/Page/ChildrenPage/Disconts';
 import AboutUs from './Component/Page/ChildrenPage/AboutUs';
 import AllFlower from './Component/Page/ChildrenPage/AllFlower'
 import LayoutHome from './Component/Page/LayOut/LayoutHome';
+import SearchPage from './Component/Page/ChildrenPage/SearchPage';
 
 
 ReactDOM.render(
@@ -28,6 +29,7 @@ ReactDOM.render(
               <Route path='/' element={<Home/>}/>
                 <Route path='/disconts' element={<Disconts/>}/>
                 <Route path='/about' element={<AboutUs/>}/>
+                <Route path='/search' element={<SearchPage/>}/>
               </Route>
 
 

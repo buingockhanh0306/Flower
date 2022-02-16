@@ -18,20 +18,9 @@ function GroupIcons(props) {
     const handleHiddenSearch = () =>
     {
         const input_search_group = document.querySelector('.input-search-group')
-        const open = document.querySelector('.open')
-        const close = document.querySelector('.close')
-        const active = document.querySelector(".active")
-        if(active===null)
-        {
-            open.style.display = "none";
-            close.style.display = "block";
-            input_search_group.classList.add("active")
-        }
-        else{
-            open.style.display = "block";
-            close.style.display = "none";
-            input_search_group.classList.remove("active")
-        }
+        const active = document.querySelector('.active')
+        console.log(active)
+        active === null ? input_search_group.classList.add("active"): input_search_group.classList.remove("active")
     }
     return (
         <>
@@ -40,14 +29,9 @@ function GroupIcons(props) {
                 <input onChange={e => setValue(e.target.value)} className='input-search' placeholder='Tìm kiếm...'/>
                 <button onClick={()=> handleSearch()} className='search-btn'><i class="fas fa-search"></i></button>
             </div>
-
-            {/* <button className='close-search'><i class="fa-solid fa-xmark"></i></button>  */}
-
             <button onClick={()=>handleHiddenSearch()} className='search-icon'>
-                <i class="open fas fa-search"></i>
-                <i class="close fa-solid fa-xmark"></i>
+                <i class="fas fa-search"></i>
             </button>
-
             <button onClick={() =>changeURL()} className='cart-icon'>
                 <i class="fas fa-shopping-cart"></i>
             </button>
