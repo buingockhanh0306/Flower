@@ -22,13 +22,14 @@ function GroupIcons(props) {
         if(event.key==='Enter')
         {
             // console.log('Đã bấm enter')
-            setValue(event.target.value)
+            setValue(event.target.value.trim())
             handleSearch()
         }
     }
     const handleHiddenSearch = () =>
     {
         const input_search_group = document.querySelector('.input-search-group')
+        const input_search = document.querySelector('.input-search')
         const open = document.querySelector('.open')
         const close = document.querySelector('.close')
         const active = document.querySelector(".active")
@@ -37,6 +38,7 @@ function GroupIcons(props) {
             open.style.display = "none";
             close.style.display = "block";
             input_search_group.classList.add("active")
+            input_search.focus()
         }
         else{
             open.style.display = "block";
@@ -48,7 +50,7 @@ function GroupIcons(props) {
         <>
         <div className='group-icon-header'>
             <div className='input-search-group'>
-                <input onKeyPress={(e)=>handleKeyPress(e)} onChange={e => setValue(e.target.value)} className='input-search' placeholder='Tìm kiếm...'/>
+                <input onKeyPress={(e)=>handleKeyPress(e)} onChange={e => setValue(e.target.value.trim())} className='input-search' placeholder='Search...'/>
                 <button onClick={()=> handleSearch()} className='search-btn'><i class="fas fa-search"></i></button>
             </div>
 

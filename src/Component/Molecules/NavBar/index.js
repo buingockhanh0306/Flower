@@ -6,9 +6,8 @@ function NavBar(props) {
     const navigate = useNavigate()
     const changeURL = (path)=>{
         const str = path.slice(1);
-        console.log('str',str)
         navigate(path)
-        localStorage.setItem('category',str.charAt(0).toUpperCase()+str.slice(1))
+        localStorage.setItem('category',str.charAt(0).toUpperCase() + str.slice(1))
     }
     return (
         <div className='navbar'>

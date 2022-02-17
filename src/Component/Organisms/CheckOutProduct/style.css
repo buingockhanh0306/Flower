@@ -20,6 +20,19 @@
     width: 100px !important;
     height: 100px !important;
 }
+.checkout-over
+{
+    max-height: 400px;
+    overflow-y: auto;
+}
+.checkout-over::-webkit-scrollbar {
+    width: 6px;
+    background-color: #F5F5F5;
+} 
+.checkout-over::-webkit-scrollbar-thumb {
+    background-color: #999;
+}
+
 .price{
 }
 .count .checkout-name{
@@ -36,6 +49,7 @@
     flex-direction: column;
     justify-content: space-around;
     align-items: center;
+    margin-right: 20px;
 
 }
 .delete-icon {
