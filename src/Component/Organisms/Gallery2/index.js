@@ -52,6 +52,7 @@ function Gallery2(props) {
             </div>
             <div className='row slide-img' style={{transform: `translateX(${x}%)`}}>
                  {renderFlower()}
+                 {/* <div className='moreee'></div> */}
             </div>
             
         </div>

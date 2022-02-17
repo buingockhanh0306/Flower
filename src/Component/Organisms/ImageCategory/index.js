@@ -15,7 +15,6 @@ function ImageCategory(props) {
     // const [count, setCount] = useState(0)
     const navigate = useNavigate();
 
-
     const loadMore = () => {
         hiddenImage > 4 ? setHiddenImage(4):(setHiddenImage(hiddenImage+hiddenImage))
         if(hiddenImage>4)
@@ -30,6 +29,7 @@ function ImageCategory(props) {
             SetTextBtn('Hide Less')
         }
     }
+
     const getFlowers = async () => {
         const flowers = await flowerAPI.getAll({'category': props.category})
         setFlower(flowers.data.slice(0, hiddenImage))
@@ -42,16 +42,15 @@ function ImageCategory(props) {
     
     const changeURL =(id, price, name)=>
     {
-        const count = flowers.length
-        localStorage.setItem('count', count) 
         localStorage.setItem('id', id)     
         localStorage.setItem('price', price)     
         localStorage.setItem('name', name)  
         navigate(`/product`)
     }
+
     const renderFlower = () => {
         return flowers.map(flower => (
-            <div className='col-md-3 col-6' >
+            <div key={flower.id} className='col-md-3 col-6' >
                 <div className='image-card'>
                     <img src={flower.imageURL} />
                     <div className='card-text'>
