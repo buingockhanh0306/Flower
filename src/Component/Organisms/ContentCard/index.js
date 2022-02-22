@@ -3,33 +3,39 @@ import ProductImage from '../../Atoms/ProductImage';
 import ProductInfo from '../../Molecules/ProductInfo';
 import { useState, useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
-import axios from 'axios';
 import './style.css'
-import flowerAPI from '../../../api/flowerAPI';
-import { ClipLoader } from 'react-spinners';
-
+import {db} from "../../../firebase-config.js"
+import {collection, getDocs} from "firebase/firestore"
 
 function ContentCard(props) {
     const [flowers, setFlower] = useState([])
     const [loading, setLoading] = useState(true)
+    const productColectionRef = collection(db, "products")
     
     const idlocal =  localStorage.getItem('id')
-    const getFlowers = async()=>
-    {
-        const flowers = await flowerAPI.getByID(idlocal)
-        setFlower(flowers.data)
-        setLoading(false)
-    }
+
+    useEffect(()=>{
+        const getFlowers = async()=>
+        {
+            const data = await getDocs(productColectionRef);
+            setFlower(data.docs.map((doc)=>({...doc.data(), id:doc.id})).filter(doc=>doc.id===idlocal));
+        };
+        getFlowers();
+    }, []);
+
+    
     const renderFlower = () => {
         return (
-            <ProductImage imgURL={flowers.imageURL}/>
+            flowers.map(flower =>
+                (
+                    <ProductImage key={flower.id} imgURL={flower.imageURL}/>
+
+            ))
         )
         
     }
-    useEffect(() => {getFlowers()}, [])
     return (
-        loading ? <div className='loading'><ClipLoader color='#D78536' loading={loading} size={30} /></div> 
-        : <div className='row margin'>
+         <div className='row margin'>
             <div className='col-6'>
                 {renderFlower()}
             </div>

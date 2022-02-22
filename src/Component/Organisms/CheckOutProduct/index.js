@@ -6,27 +6,35 @@ import axios from 'axios';
 import OrderTotal from '../../Molecules/OrderTotal';
 import { useDispatch, useSelector } from 'react-redux';
 import { adjustQty, RemoveFromCart } from '../../../redux/cart/cartAction';
-import flowerAPI from '../../../api/flowerAPI';
+import {db} from "../../../firebase-config.js"
+import {collection, getDocs} from "firebase/firestore"
+
 
 function CheckOutProduct(props) {
 
 
     const dispatch = useDispatch()
+    // const productColectionRef = collection(db, "products")
+
     const [total, setTotal] = useState(localStorage.getItem('price'))
     const [hidden, setHidden] = useState(0)
     const todoCart = JSON.parse(localStorage.getItem('todoCart'))
     const cartSelector = useSelector((state) => state.cart.cart)
 
+    console.log(todoCart);
     localStorage.setItem('todoCart',JSON.stringify(cartSelector))
 
-    const [flowers, setFlower] = useState([])
-    const idlocal = localStorage.getItem('id')
-    const getFlowers = async()=>
-    {
-        const flowers = await flowerAPI.getByID(idlocal)
-        setFlower(flowers.data)
-        setTotal(localStorage.getItem('price'))
-    }
+    // const [flowers, setFlower] = useState([])
+    // const idlocal = localStorage.getItem('id')
+
+    //  useEffect(()=>{
+    //     const getFlowers = async()=>
+    //     {
+    //         const data = await getDocs(productColectionRef);
+    //         setFlower(data.docs.map((doc)=>({...doc.data(), id:doc.id})).filter(doc=>doc.id===idlocal));
+    //     };
+    //     getFlowers();
+    // }, []);
 
     const handleRemoveProduct = (id) => {
              dispatch(RemoveFromCart(id)
@@ -82,7 +90,6 @@ function CheckOutProduct(props) {
         ))
         
     }
-    useEffect(() => {getFlowers()}, [])
 
     return (
         <div className='checkout-checkout'>
