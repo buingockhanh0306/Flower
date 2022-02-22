@@ -2,83 +2,89 @@ import React, { useState } from 'react';
 import Dropdown from '../../Atoms/Dropdown';
 import SelectItem from '../../Atoms/SelectItem';
 import './style.css'
-import {useEffect } from 'react';
+import { useEffect } from 'react';
 import flowerAPI from '../../../api/flowerAPI';
+import { useNavigate } from 'react-router-dom';
 
 
 
 function GroupSelect(props) {
 
     const [flowers, setFlower] = useState([])
-
+    const navigate = useNavigate();
+    const category = localStorage.getItem('category')
     const getFlowers = async () => {
         const flowers = await flowerAPI.getAll()
         setFlower(flowers.data)
     }
-    
+
     useEffect(() => { getFlowers() }, [])
 
     // Lọc giá trị trùng nhau 
-    const unique = (arr)=>
-    {
+    const unique = (arr) => {
         return Array.from(new Set(arr))
     }
 
     const renderColor = () => {
         let arrColor = []
-        flowers.map((flower)=>
-            {
-                arrColor.push(flower.color)
-            })
+        flowers.map((flower) => {
+            arrColor.push(flower.color)
+        })
         const newArr = unique(arrColor)
         return newArr.map(color => (
-            <Dropdown key={color} item={color}/>           
+            <option key={color} value={color}>{color}</option>
         ))
-        
+    }
+    const filterGroup =(value)=>
+    {
+        localStorage.setItem('group', value)
+        navigate(`/${category}`)
+    }
+    const filterColor=(value)=>
+    {
+        localStorage.setItem('color', value)
+        navigate(`/${category}`)
     }
     return (
         <>
-        <div className='group-select'>
-            <div className='drop-list'>
-                <SelectItem text='Group by'/>
-                <div className='drop-down'>
-                    <Dropdown item="Latest"/>
-                    <Dropdown item="Oldest"/>
+            <div className='group-select'>
+                <div className='drop-list'>
+                    <select onChange={e=>filterGroup(e.target.value)} className='select' aria-label="Default select example">
+                        <option defaultValue="">Group By</option>
+                        <option value="last">Lastest</option>
+                        <option value="old">Oldest</option>
+                    </select>
                 </div>
-            </div>
 
-            <div className='drop-list'>
-                <SelectItem text='Color'/>
-                <div className='drop-down'>
-                    {renderColor()}
+                <div className='drop-list'>
+                    <select onChange={(e)=>filterColor(e.target.value)} className='select' aria-label="Default select example">
+                        <option defaultValue="">Color</option>
+                        {renderColor()}
+                    </select>
                 </div>
-            </div>
 
-            <div className='drop-list'>
-                <SelectItem text='Price'/>  
-                <div className='drop-down'>
-                    <Dropdown item="From cheap to expensive"/>
-                    <Dropdown item="From expensive to cheap"/>
+                <div className='drop-list'>
+                    <select className='select' aria-label="Default select example">
+                        <option defaultValue=""></option>
+                        <option value="1">One</option>
+                    </select>
                 </div>
-            </div>
 
-            <div className='drop-list'>
-                <SelectItem text='Flower type'/>    
-                <div className='drop-down'>
-                    <Dropdown item='Tulip'/>
-                    <Dropdown item='Rose'/>
-                    <Dropdown item='Daisy'/>
+                <div className='drop-list'>
+                    <select className='select' aria-label="Default select example">
+                        <option defaultValue=""></option>
+                        <option value="1">One</option>
+                    </select>
                 </div>
-            </div>
 
-            <div className='drop-list'>
-                <SelectItem text='Occasion'/>
-                <div className='drop-down'>
-                    <Dropdown/>
+                <div className='drop-list'>
+                    <select className='select' aria-label="Default select example">
+                        <option defaultValue=""></option>
+                        <option value="1">One</option>
+                    </select>
                 </div>
             </div>
-        </div>
-        <div className='count'>{flowers.length} items</div>
+            <div className='count'>{flowers.length} items</div>
         </>
     );
 }

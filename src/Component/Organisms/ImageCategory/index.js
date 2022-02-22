@@ -30,15 +30,22 @@ function ImageCategory(props) {
         }
     }
 
+    const color =localStorage.getItem('color')
     const getFlowers = async () => {
         const flowers = await flowerAPI.getAll({'category': props.category})
-        setFlower(flowers.data.slice(0, hiddenImage))
+        if(color==="Color")
+        {
+            setFlower(flowers.data)
+        }
+        else{
+            setFlower(flowers.data.filter(flower => flower.color === color).slice(0, hiddenImage))
+        }
         setLoading(false)
     }
     
     
     
-    useEffect(() => { getFlowers() }, [hiddenImage])
+    useEffect(() => { getFlowers() }, [hiddenImage, color])
     
     const changeURL =(id, price, name)=>
     {
