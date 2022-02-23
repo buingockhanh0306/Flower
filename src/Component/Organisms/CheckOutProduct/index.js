@@ -90,7 +90,7 @@ function CheckOutProduct(props) {
         ))
         
     }
-
+    console.log(cartSelector);
     return (
         <div className='checkout-checkout'>
             <div className='checkout-heading'>

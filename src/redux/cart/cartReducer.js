@@ -164,7 +164,9 @@ const initState ={
              "id": "24"
             }
            ],
-    cart:[],
+    cart:[
+        
+    ],
     currentItem: null
 }
 
