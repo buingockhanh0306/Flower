@@ -37,12 +37,10 @@ function GroupSelect(props) {
     }
     const filterGroup =(value)=>
     {
-        localStorage.setItem('group', value)
         navigate(`/${category}`)
     }
     const filterColor=(value)=>
     {
-        localStorage.setItem('color', value)
         navigate(`/${category}`)
     }
     return (

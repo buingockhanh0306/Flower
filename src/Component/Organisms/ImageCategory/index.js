@@ -49,9 +49,7 @@ function ImageCategory(props) {
     
     const changeURL =(id, price, name)=>
     {
-        localStorage.setItem('id', id)     
-        localStorage.setItem('price', price)     
-        localStorage.setItem('name', name)  
+        
         navigate(`/product`)
     }
 

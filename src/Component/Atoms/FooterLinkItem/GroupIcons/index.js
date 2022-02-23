@@ -11,7 +11,6 @@ function GroupIcons(props) {
     }
     const handleSearch = ()=>
     {
-        localStorage.setItem('search_value', value)
         navigate('/search')
 
     }

@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { BrowserRouter as Router, Switch, Route, Link, useNavigate, useLocation } from "react-router-dom";
+import { BrowserRouter as Router, Switch, Route, Link, useNavigate, useLocation, useParams } from "react-router-dom";
 import { useState } from 'react/cjs/react.development';
 import PlusItem from '../../Atoms/PlusItem';
 import Price from '../../Atoms/Price';
@@ -20,12 +20,13 @@ function ProductInfo(props) {
     const [loading, setLoading] = useState(true)
     const dispatch = useDispatch()
     const notify = () => toast("Đã thêm vào giỏ hàng");
-    const idlocal = localStorage.getItem('id')
+
+    const {id} = useParams();
 
     useEffect(() => {
         const getFlowers = async () => {
             const data = await getDocs(productColectionRef);
-            setFlower(data.docs.map((doc) => ({ ...doc.data(), id: doc.id })).filter(doc => doc.id === idlocal));
+            setFlower(data.docs.map((doc) => ({ ...doc.data(), id: doc.id })).filter(doc=>doc.id===id));
         };
         getFlowers();
     }, []);
@@ -33,16 +34,13 @@ function ProductInfo(props) {
     const navigate = useNavigate();
 
     // REDUX
-    const handleAddProduct = (id) => {
-        dispatch(addToCart(id))
+    const handleAddProduct = (flower) => {
+        dispatch(addToCart(flower))
         notify();
     }
 
-
     const changeURL = (id) => {
-        localStorage.setItem('idProd', id)
         navigate(`/checkout`)
-
     }
     const renderFlower = () => {
         return (
@@ -56,7 +54,7 @@ function ProductInfo(props) {
                     <div>Color: </div>
                     <ButtonColor />
                     <div className='order'>
-                        <button onClick={() => handleAddProduct(flower.id)} className='order-btn'>
+                        <button onClick={() => handleAddProduct(flower)} className='order-btn'>
                             Order now
                         </button>
                         <button onClick={() => changeURL(flower.id)} className='order-cart'><i class="fas fa-shopping-cart"></i></button>

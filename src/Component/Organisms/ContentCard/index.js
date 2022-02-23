@@ -2,7 +2,7 @@ import React from 'react';
 import ProductImage from '../../Atoms/ProductImage';
 import ProductInfo from '../../Molecules/ProductInfo';
 import { useState, useEffect } from 'react';
-import { useLocation } from 'react-router-dom';
+import { useLocation, useParams } from 'react-router-dom';
 import './style.css'
 import {db} from "../../../firebase-config.js"
 import {collection, getDocs} from "firebase/firestore"
@@ -12,13 +12,12 @@ function ContentCard(props) {
     const [loading, setLoading] = useState(true)
     const productColectionRef = collection(db, "products")
     
-    const idlocal =  localStorage.getItem('id')
-
+    const {id} = useParams()
     useEffect(()=>{
         const getFlowers = async()=>
         {
             const data = await getDocs(productColectionRef);
-            setFlower(data.docs.map((doc)=>({...doc.data(), id:doc.id})).filter(doc=>doc.id===idlocal));
+            setFlower(data.docs.map((doc)=>({...doc.data(), id:doc.id})).filter(doc=>doc.id===id));
         };
         getFlowers();
     }, []);
@@ -29,7 +28,6 @@ function ContentCard(props) {
             flowers.map(flower =>
                 (
                     <ProductImage key={flower.id} imgURL={flower.imageURL}/>
-
             ))
         )
         

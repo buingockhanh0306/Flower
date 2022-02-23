@@ -42,11 +42,7 @@ function ResultSearch(props) {
     
     const changeURL =(id, price, name)=>
     {
-        const count = flowers.length
-        localStorage.setItem('count', count) 
-        localStorage.setItem('id', id)     
-        localStorage.setItem('price', price)     
-        localStorage.setItem('name', name)  
+        const count = flowers.length 
         navigate(`/product`)
     }
     const renderFlower = () => {

@@ -40,7 +40,7 @@ ReactDOM.render(
               </Route>
 
 
-              <Route path='/product' element={<ProductCard/>}/>
+              <Route path='/product/:id' element={<ProductCard/>}/>
               <Route path='/checkout' element={<CheckOut/>}/>
 
           </Routes>

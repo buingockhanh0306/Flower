@@ -14,28 +14,11 @@ function CheckOutProduct(props) {
 
 
     const dispatch = useDispatch()
-    // const productColectionRef = collection(db, "products")
 
     const [total, setTotal] = useState(localStorage.getItem('price'))
     const [hidden, setHidden] = useState(0)
-    const todoCart = JSON.parse(localStorage.getItem('todoCart'))
     const cartSelector = useSelector((state) => state.cart.cart)
-
-    console.log(todoCart);
-    localStorage.setItem('todoCart',JSON.stringify(cartSelector))
-
-    // const [flowers, setFlower] = useState([])
-    // const idlocal = localStorage.getItem('id')
-
-    //  useEffect(()=>{
-    //     const getFlowers = async()=>
-    //     {
-    //         const data = await getDocs(productColectionRef);
-    //         setFlower(data.docs.map((doc)=>({...doc.data(), id:doc.id})).filter(doc=>doc.id===idlocal));
-    //     };
-    //     getFlowers();
-    // }, []);
-
+    useEffect(()=>{console.log({cartSelector});})
     const handleRemoveProduct = (id) => {
              dispatch(RemoveFromCart(id)
         )
@@ -68,8 +51,8 @@ function CheckOutProduct(props) {
     }
 
     const renderFlower = () => {
-        if(todoCart.length === 0) return <div className='no-product'><img src='assets/images/empty_product.png'/></div>
-        return todoCart.map((flower) => (
+        // if(todoCart.length === 0) return <div className='no-product'><img src='assets/images/empty_product.png'/></div>
+        return cartSelector.map((flower) => (
         <div key={flower.id} className='checkout-img'>
             <img src={flower.imageURL}/>
             <div className='count'>
@@ -77,6 +60,7 @@ function CheckOutProduct(props) {
                 <div className='plus'>
                     <button onClick={()=>UpdateQuality(flower.id, flower.qty>1 ? flower.qty-1: 1)} className='sub-add'><i class="fas fa-minus"></i></button>
                     <span className='count'>{flower.qty}</span>
+                    {console.log(flower.qty)}
                     <button onClick={()=>UpdateQuality(flower.id, flower.qty+1)} className='sub-add'><i class="fas fa-plus"></i></button>
                 </div>
             </div>
@@ -90,13 +74,13 @@ function CheckOutProduct(props) {
         ))
         
     }
-    console.log(cartSelector);
+
     return (
         <div className='checkout-checkout'>
             <div className='checkout-heading'>
                 <div>
                     <Heading text='Order Total'/>
-                    <span className='length'>({todoCart.length})</span>
+                    <span className='length'>{cartSelector.length}</span>
                 </div>
                 <button  onClick={handleHiddenIcon} className='btn-delete'>Edit</button>
             </div>
@@ -108,7 +92,7 @@ function CheckOutProduct(props) {
 
             <div className='total-group'>
                 <OrderTotal text='Shipping' price='FREE'/>
-                <OrderTotal text='Order total' price={showTotal(todoCart)}/>
+                <OrderTotal text='Order total' price={showTotal(cartSelector)}/>
             </div>
             
         </div>
