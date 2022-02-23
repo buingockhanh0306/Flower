@@ -2,31 +2,22 @@ import React from 'react';
 import Heading from '../../Atoms/Heading';
 import { useState, useEffect, useMemo} from 'react';
 import './style.css'
-import axios from 'axios';
 import OrderTotal from '../../Molecules/OrderTotal';
 import { useDispatch, useSelector } from 'react-redux';
 import { adjustQty, RemoveFromCart } from '../../../redux/cart/cartAction';
-import flowerAPI from '../../../api/flowerAPI';
 
 function CheckOutProduct(props) {
 
 
     const dispatch = useDispatch()
-    const [total, setTotal] = useState(localStorage.getItem('price'))
     const [hidden, setHidden] = useState(0)
     const todoCart = JSON.parse(localStorage.getItem('todoCart'))
     const cartSelector = useSelector((state) => state.cart.cart)
 
     localStorage.setItem('todoCart',JSON.stringify(cartSelector))
 
-    const [flowers, setFlower] = useState([])
-    const idlocal = localStorage.getItem('id')
-    const getFlowers = async()=>
-    {
-        const flowers = await flowerAPI.getByID(idlocal)
-        setFlower(flowers.data)
-        setTotal(localStorage.getItem('price'))
-    }
+    console.log(cartSelector);
+    console.log(todoCart);
 
     const handleRemoveProduct = (id) => {
              dispatch(RemoveFromCart(id)
@@ -82,7 +73,7 @@ function CheckOutProduct(props) {
         ))
         
     }
-    useEffect(() => {getFlowers()}, [])
+    // useEffect(() => {getFlowers()}, [])
 
     return (
         <div className='checkout-checkout'>
