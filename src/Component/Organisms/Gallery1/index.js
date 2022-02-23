@@ -10,8 +10,6 @@ import {collection, getDocs} from "firebase/firestore"
 function Gallery1(props) {
     const [flowers, setFlower] = useState([])
     const productColectionRef = collection(db, "products")
-    const [loading, setLoading] = useState(true)
-
     const [x, setX] = useState(0);
 
     
