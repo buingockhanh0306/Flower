@@ -12,9 +12,13 @@
 .image-card
 {
     width: 100%;
+}
+.image-card_img{
     position: relative;
+
 }
 .image-card img{
+    background-color: #DBD0C1;
     width: 260px !important;
     height: 260px !important;
 }
@@ -24,12 +28,16 @@
     background-color: transparent;
     display: block;
     margin: 0 auto;
+    font-weight: 500;
+}
+.flower-name:hover{
+    color: #666;
 }
 .image-card_icon{
     position: absolute;
     width: 100px;
     justify-content: space-between;
-    bottom: 90px;
+    bottom: 40px;
     left: 80px;
     display: none;
     animation: fadeIn ease 0.3s;
@@ -46,7 +54,7 @@
         opacity: 1
     }
 }
-.image-card:hover .image-card_icon{
+.image-card_img:hover .image-card_icon{
     display: flex;
     cursor: pointer;
 }

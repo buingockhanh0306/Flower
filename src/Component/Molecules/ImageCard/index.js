@@ -13,15 +13,17 @@ function ImageCard(props) {
 
     return (
         <div className='image-card'>
-            <img src={props.linkimg}/>
+            <div className='image-card_img'>
+                <img src={props.linkimg}/>
+                <div className='image-card_icon'>
+                    <button className='image-card_icon-item'><i class="far fa-heart"></i></button>
+                    <button onClick={()=>changeURL(props.id)} className='image-card_icon-item'><i class="fas fa-shopping-cart"></i></button>
+                </div>
+            </div>
             <div className='card-text'>
                 <button onClick={()=>changeURL(props.id)} className='flower-name'>{props.name}</button>           
                 <div className='flower-price'>{props.price}</div> 
                 <span><i class="fas fa-dollar-sign"></i></span>          
-            </div>
-            <div className='image-card_icon'>
-                <button className='image-card_icon-item'><i class="far fa-heart"></i></button>
-                <button onClick={()=>changeURL(props.id)} className='image-card_icon-item'><i class="fas fa-shopping-cart"></i></button>
             </div>
         </div>
     );

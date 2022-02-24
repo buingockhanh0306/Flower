@@ -51,7 +51,7 @@ function CheckOutProduct(props) {
     }
 
     const renderFlower = () => {
-        // if(todoCart.length === 0) return <div className='no-product'><img src='assets/images/empty_product.png'/></div>
+        if(cartSelector.length === 0) return <div className='no-product'><img src='assets/images/empty_product.png'/></div>
         return cartSelector.map((flower) => (
         <div key={flower.id} className='checkout-img'>
             <img src={flower.imageURL}/>
@@ -80,7 +80,7 @@ function CheckOutProduct(props) {
             <div className='checkout-heading'>
                 <div>
                     <Heading text='Order Total'/>
-                    <span className='length'>{cartSelector.length}</span>
+                    <span className='length'> ({cartSelector.length})</span>
                 </div>
                 <button  onClick={handleHiddenIcon} className='btn-delete'>Edit</button>
             </div>

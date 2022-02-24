@@ -13,10 +13,9 @@ const cartReducer = (state=initState, action) =>
         case actionTypes.ADD_TO_CART:
         const cart = state.cart
         const idx = cart.findIndex(item=> item.id === action.payload.id)
-        const existedItem = idx === -1 ? cart.push(action.payload) : cart[idx].qty++
+        idx === -1 ? cart.push({...action.payload, qty: 1}) : cart[idx].qty++
+        
         localStorage.setItem('todoCart', JSON.stringify(cart))
-
-        console.log({cart});
         return{
             ...state, 
             cart
