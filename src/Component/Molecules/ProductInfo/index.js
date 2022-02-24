@@ -57,7 +57,7 @@ function ProductInfo(props) {
                         <button onClick={() => handleAddProduct(flower)} className='order-btn'>
                             Order now
                         </button>
-                        <button onClick={() => changeURL(flower.id)} className='order-cart'><i class="fas fa-shopping-cart"></i></button>
+                        <button onClick={() => changeURL(flower.id)} className='order-cart'><i className="fas fa-shopping-cart"></i></button>
                     </div>
                     <div className='group-plus'>
                         <PlusItem text='Bouquest contens' />

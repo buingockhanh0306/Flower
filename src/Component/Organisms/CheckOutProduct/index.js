@@ -58,16 +58,16 @@ function CheckOutProduct(props) {
             <div className='count'>
                 <p className='checkout-name'>{flower.name}</p>
                 <div className='plus'>
-                    <button onClick={()=>UpdateQuality(flower.id, flower.qty>1 ? flower.qty-1: 1)} className='sub-add'><i class="fas fa-minus"></i></button>
+                    <button onClick={()=>UpdateQuality(flower.id, flower.qty>1 ? flower.qty-1: 1)} className='sub-add'><i className="fas fa-minus"></i></button>
                     <span className='count'>{flower.qty}</span>
                     {console.log(flower.qty)}
-                    <button onClick={()=>UpdateQuality(flower.id, flower.qty+1)} className='sub-add'><i class="fas fa-plus"></i></button>
+                    <button onClick={()=>UpdateQuality(flower.id, flower.qty+1)} className='sub-add'><i className="fas fa-plus"></i></button>
                 </div>
             </div>
             <div className='delete'>
                 <div className='price'>{flower.price} $</div>
                 <button onClick={()=>handleRemoveProduct(flower.id)}  className='delete-icon'>
-                    <i class="far fa-trash-alt"></i>
+                    <i className="far fa-trash-alt"></i>
                 </button>
             </div>
         </div>

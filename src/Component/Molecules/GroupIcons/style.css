@@ -71,3 +71,56 @@
 .active{
     display: inline-block;
 }
+.avatar-user-img{
+   width: 40px !important;
+    height: 40px !important;
+    border-radius: 50%;
+    outline: none;
+    border: none;
+    background-color: #f1f1f1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 8px;
+    position: relative;
+}
+.avatar-user{
+    position: relative;
+}
+.avatar-user:hover .login-logout{
+    display: block;
+    cursor: pointer;
+}
+.login-logout{
+    background-color: #E9E9E7;
+    width: 186px;
+    position: absolute;
+    top: 50px;
+    right: 0;
+    padding: 8px 16px;
+    text-align: left;
+    border-radius: 4px;
+    display: none;
+    z-index: 1000;
+}
+.login-logout::before{
+    content: "";
+    display: block;
+    width: 70px;
+    height: 30px;
+    background-color: transparent;
+    top: -20px;
+    right: 0px;
+    position: absolute;
+}
+.login-logout-item{
+    display: block;
+    line-height: 1.6;
+}
+.login-logout-item i{
+    width: 30px;
+    padding: 10px 0;
+}
+.login-logout hr{
+    margin: 0;
+}

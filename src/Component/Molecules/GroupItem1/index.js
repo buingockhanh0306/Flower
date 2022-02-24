@@ -8,9 +8,9 @@ function GroupItem1(props) {
             <HeadingFooter text = 'Follow Us'/>
             <FooterLinkItem nameitem='+84 9814 5813'/>
             <div className='group-icon'>
-                <a className='item-icon'><i class="fab fa-instagram"></i></a>
-                <a className='item-icon'><i class="fas fa-sms"></i></a>
-                <a className='item-icon'><i class="fab fa-facebook-f"></i></a>
+                <a className='item-icon'><i className="fab fa-instagram"></i></a>
+                <a className='item-icon'><i className="fas fa-sms"></i></a>
+                <a className='item-icon'><i className="fab fa-facebook-f"></i></a>
             </div>
         </div>
     );

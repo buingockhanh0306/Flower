@@ -50,10 +50,10 @@ function Gallery2(props) {
                 <div className='gallery-name'>{props.galleryname}</div>
                 <div className='gallery-arrow'>
                     <button className='arrow-btn' onClick={toLeft}>
-                         <i class="arrow1 fas fa-long-arrow-alt-left"></i>
+                         <i className="arrow1 fas fa-long-arrow-alt-left"></i>
                     </button>
                     <button className='arrow-btn' onClick={toRight}>
-                         <i class="arrow2 fas fa-long-arrow-alt-right"></i>
+                         <i className="arrow2 fas fa-long-arrow-alt-right"></i>
                     </button>
                 </div>
             </div>

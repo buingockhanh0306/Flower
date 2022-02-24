@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import Location from '../../Atoms/Location';
 import Heading from '../../Atoms/Heading';
-import GroupIcons from '../../Atoms/GroupIcons';
+import GroupIcons from '../GroupIcons';
 import './style.css'
 
 function Header(props) {

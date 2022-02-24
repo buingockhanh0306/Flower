@@ -17,9 +17,9 @@ function CountGroup(props) {
         <div className='count-group'>
             <div>Count: </div>
             <div className='plus'>
-                <button onClick={Sub} className='sub-add'><i class="fas fa-minus"></i></button>
+                <button onClick={Sub} className='sub-add'><i className="fas fa-minus"></i></button>
                 <span className='count'>{count}</span>
-                <button onClick={Plus} className='sub-add'><i class="fas fa-plus"></i></button>
+                <button onClick={Plus} className='sub-add'><i className="fas fa-plus"></i></button>
             </div>
         </div>
     );

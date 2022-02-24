@@ -61,11 +61,11 @@ function ImageCategory(props) {
                     <div className='card-text'>
                         <button onClick={()=>changeURL(flower.id, flower.price, flower.name)} className='flower-name'>{flower.name}</button>
                         <div className='flower-price'>{flower.price}</div>
-                        <span><i class="fas fa-dollar-sign"></i></span>
+                        <span><i className="fas fa-dollar-sign"></i></span>
                     </div>
                     <div className='image-card_icon'>
-                        <button className='image-card_icon-item'><i class="far fa-heart"></i></button>
-                        <button onClick={()=>changeURL(flower.id, flower.price, flower.name)} className='image-card_icon-item'><i class="fas fa-shopping-cart"></i></button>
+                        <button className='image-card_icon-item'><i className="far fa-heart"></i></button>
+                        <button onClick={()=>changeURL(flower.id, flower.price, flower.name)} className='image-card_icon-item'><i className="fas fa-shopping-cart"></i></button>
                     </div>
                 </div>
             </div>
