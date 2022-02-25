@@ -119,10 +119,13 @@
 }
 .login-logout-item i{
     width: 30px;
-    /* padding: 10px 0; */
+    display: inline-block;
 }
 .login-logout hr{
     margin: 0;
+}
+.logout{
+    color: red;
 }
 .login-logout-item img{
     width: 30px !important;

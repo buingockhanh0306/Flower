@@ -1,15 +1,24 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useState } from 'react';
 import './style.css'
-import { signInWithGoogle, signInWithFacebook, signOutUser } from '../../../firebase-config'
+import { signOutUser } from '../../../firebase-config'
+import LoginForm from '../LoginForm';
+import SignUpForm from '../SignUpForm';
+import { auth } from '../../../firebase-config';
+import { onAuthStateChanged } from 'firebase/auth'
 
 function GroupIcons(props) {
-    const avatarImg = localStorage.getItem('avatar')  //firebase-config 
-    const name = localStorage.getItem('name')  //firebase-config 
+    const navigate = useNavigate();
+
+    const [user, setUser] = useState({})
+
+    onAuthStateChanged(auth, (curentUser) => {
+        setUser(curentUser)
+    })
 
     const [value, setValue] = useState('')
-    const navigate = useNavigate();
+
     const changeURL = () => {
         navigate(`/checkout`)
     }
@@ -62,43 +71,36 @@ function GroupIcons(props) {
                 </button>
 
                 <div className='avatar-user'>
-                    {avatarImg ? <img className='avatar-user-img' src={avatarImg} /> : <img className='avatar-user-img' src='assets/images/avatar.png' /> }
+                    {user?.photoURL ? <img className='avatar-user-img' src={user?.photoURL} /> : <img className='avatar-user-img' src='assets/images/avatar.png' />}
                     <div className='login-logout'>
-                        {name ?
+                        {user?.displayName ?
                             <>
                                 <span className='login-logout-item'>
-                                    <img src={avatarImg} />
-                                    <span className='name-user'>{name}</span>
+                                    <img src={user?.photoURL} />
+                                    <span className='name-user'>{user?.displayName}</span>
                                 </span>
                                 <hr />
-                                <span onClick={signOutUser} className='login-logout-item'><i class="fa-solid fa-right-from-bracket"></i>Đăng xuất</span>
+                                <span data-toggle="modal" data-target="#login" className='login-logout-item'>
+                                    <i className="fa-solid fa-arrow-right-arrow-left"></i>
+                                    Change Account
+                                </span>
+
+                                <span onClick={signOutUser} className='login-logout-item logout'>
+                                    <i className="fa-solid fa-arrow-right-from-bracket"></i>
+                                    Log out
+                                </span>
                             </> :
                             <>
-                                <span data-toggle="modal" data-target="#login" className='login-logout-item'><i className="fa-solid fa-right-to-bracket"></i>Đăng nhập</span>
+                                <span data-toggle="modal" data-target="#login" className='login-logout-item'><i className="fa-solid fa-right-to-bracket"></i>Log in</span>
                                 <hr />
-                                <span onClick={signOutUser} className='login-logout-item'><i className="fa-solid fa-user-plus"></i>Đăng ký</span>
+                                <span data-toggle="modal" data-target="#signup" className='login-logout-item'><i className="fa-solid fa-user-plus"></i>Sign up</span>
                             </>
                         }
                     </div>
 
                     {/* Modal */}
-
-                    <div class="modal fade" id="login" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                        <div class="modal-dialog" role="document">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <h5 class="modal-title" id="exampleModalLabel">Đăng nhập</h5>
-                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                        <span aria-hidden="true">&times;</span>
-                                    </button>
-                                </div>
-                                <div class="modal-body">
-                                    <button onClick={signInWithGoogle} type="button" class="btn btn-primary btn-md btn-block">Đăng nhập bằng Google</button>
-                                    <button onClick={signInWithFacebook} type="button" class="btn btn-info btn-md btn-block">Đăng nhập bằng Facebook</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                    <SignUpForm />
+                    <LoginForm />
 
                     {/* End Modal */}
 

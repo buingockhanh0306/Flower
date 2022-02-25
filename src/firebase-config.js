@@ -1,6 +1,6 @@
 import { initializeApp } from "firebase/app";
 import { getFirestore } from "@firebase/firestore"
-import { getAuth, GoogleAuthProvider, FacebookAuthProvider, signInWithPopup, signOut } from "firebase/auth"
+import { getAuth, GoogleAuthProvider, FacebookAuthProvider, signInWithPopup, signOut, signInWithEmailAndPassword } from "firebase/auth"
 
 const firebaseConfig = {
   apiKey: "AIzaSyB7ueeNd1hWMYfug7btlUIh8pwuVJ0lAMM",
@@ -17,37 +17,22 @@ const app = initializeApp(firebaseConfig)
 
 export const auth = getAuth(app)
 export const db = getFirestore(app)
-
 const providerGoogle = new GoogleAuthProvider()
 const providerFacebook = new FacebookAuthProvider();
-
 export const signInWithGoogle = () => {
-  signInWithPopup(auth, providerGoogle).then((result) => {
-    localStorage.setItem('name', result.user.displayName)
-    localStorage.setItem('avatar', result.user.photoURL)
-  }).catch((error) => {
-    console.log(error);
-  })
+  signInWithPopup(auth, providerGoogle)
 }
 
 export const signInWithFacebook = () => {
-  signInWithPopup(auth, providerFacebook).then((result) => {
-    localStorage.setItem('name', result.user.displayName)
-    localStorage.setItem('avatar', result.user.photoURL)
-
-  }).catch((error) => {
-    console.log(error);
-  })
+  signInWithPopup(auth, providerFacebook)
 }
 
 export const signOutUser = () => {
-  const auth = getAuth();
-  signOut(auth).then(() => {
-    localStorage.clear()
-    console.log('sign out');
-    window.location.reload();
+  signOut(auth)
+}
 
-  }).catch((err) => {
-    console.log(err);
-  })
+export const signInWithEmail = (email, password)=>
+{
+  signInWithEmailAndPassword(email, password)
+  console.log('sign in with email');
 }

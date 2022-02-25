@@ -1,0 +1,30 @@
+.social-button
+{
+    text-align: left;
+    opacity: 0.85;
+}
+.social-button i 
+{
+    margin-right: 30%;
+}
+.gg
+{
+    background-color: #dd4b39;
+    outline: none;
+    border: none;
+}
+.fb
+{
+    background-color: #3B5998;
+    outline: none;
+    border: none;
+}
+.gg:hover{
+    background-color: #dd4b39;
+    opacity: 1;
+}
+.fb:hover
+{
+    background-color: #3B5998;
+    opacity: 1;
+}
