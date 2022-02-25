@@ -2,10 +2,12 @@ import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useState } from 'react';
 import './style.css'
-import { signInWithGoogle, signInWithFacebook } from '../../../firebase-config'
+import { signInWithGoogle, signInWithFacebook, signOutUser } from '../../../firebase-config'
 
 function GroupIcons(props) {
     const avatarImg = localStorage.getItem('avatar')  //firebase-config 
+    const name = localStorage.getItem('name')  //firebase-config 
+
     const [value, setValue] = useState('')
     const navigate = useNavigate();
     const changeURL = () => {
@@ -13,13 +15,12 @@ function GroupIcons(props) {
     }
 
     const handleSearch = () => {
-        navigate('/search')
+        navigate(`/search/${value}`)
 
     }
 
     const handleKeyPress = (event) => {
         if (event.key === 'Enter') {
-            // console.log('Đã bấm enter')
             setValue(event.target.value.trim())
             handleSearch()
         }
@@ -61,18 +62,25 @@ function GroupIcons(props) {
                 </button>
 
                 <div className='avatar-user'>
-                    <img className='avatar-user-img' src={avatarImg} />
-                    {/* {
-                    avatarImg ? 
+                    {avatarImg ? <img className='avatar-user-img' src={avatarImg} /> : <img className='avatar-user-img' src='assets/images/avatar.png' /> }
                     <div className='login-logout'>
-                        <span data-toggle="modal" data-target="#login" className='login-logout-item'><i className="fa-solid fa-right-to-bracket"></i>Đăng xuất</span>
-                    </div> :  */}
-                    <div className='login-logout'>
-                        <span data-toggle="modal" data-target="#login" className='login-logout-item'><i className="fa-solid fa-right-to-bracket"></i>Đăng nhập</span>
-                        <hr />
-                        <span className='login-logout-item'><i className="fa-solid fa-user-plus"></i>Đăng ký</span>
+                        {name ?
+                            <>
+                                <span className='login-logout-item'>
+                                    <img src={avatarImg} />
+                                    <span className='name-user'>{name}</span>
+                                </span>
+                                <hr />
+                                <span onClick={signOutUser} className='login-logout-item'><i class="fa-solid fa-right-from-bracket"></i>Đăng xuất</span>
+                            </> :
+                            <>
+                                <span data-toggle="modal" data-target="#login" className='login-logout-item'><i className="fa-solid fa-right-to-bracket"></i>Đăng nhập</span>
+                                <hr />
+                                <span onClick={signOutUser} className='login-logout-item'><i className="fa-solid fa-user-plus"></i>Đăng ký</span>
+                            </>
+                        }
                     </div>
-                    
+
                     {/* Modal */}
 
                     <div class="modal fade" id="login" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">

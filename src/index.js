@@ -29,7 +29,7 @@ ReactDOM.render(
               <Route path='/' element={<Home/>}/>
                 <Route path='/disconts' element={<Disconts/>}/>
                 <Route path='/about' element={<AboutUs/>}/>
-                <Route path='/search' element={<SearchPage/>}/>
+                <Route path='/search/:name' element={<SearchPage/>}/>
               </Route>
 
 

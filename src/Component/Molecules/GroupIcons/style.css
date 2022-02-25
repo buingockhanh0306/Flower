@@ -97,7 +97,6 @@
     position: absolute;
     top: 50px;
     right: 0;
-    padding: 8px 16px;
     text-align: left;
     border-radius: 4px;
     display: none;
@@ -116,11 +115,21 @@
 .login-logout-item{
     display: block;
     line-height: 1.6;
+    padding: 10px 10px;
 }
 .login-logout-item i{
     width: 30px;
-    padding: 10px 0;
+    /* padding: 10px 0; */
 }
 .login-logout hr{
     margin: 0;
+}
+.login-logout-item img{
+    width: 30px !important;
+    height: 30px !important;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+.name-user{
+    font-weight: 500;
 }

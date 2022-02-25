@@ -4,15 +4,19 @@ import './style.css'
 import { useNavigate } from 'react-router-dom';
 import ClipLoader from "react-spinners/ClipLoader";
 import flowerAPI from '../../../api/flowerAPI';
+import {db} from "../../../firebase-config.js"
+import {collection, getDocs} from "firebase/firestore"
+import {useParams} from "react-router-dom";
 
 
 
 function ResultSearch(props) {
     const [flowers, setFlower] = useState([])
+    const productColectionRef = collection(db, "products")
     const [loading, setLoading] = useState(true)
     const [hiddenImage, setHiddenImage] = useState(4);
     const [textBtn, SetTextBtn] = useState('Load More')
-    const nameValue = localStorage.getItem('search_value')
+    const {name} = useParams()
     const navigate = useNavigate();
 
 
@@ -30,15 +34,17 @@ function ResultSearch(props) {
             SetTextBtn('Hide Less')
         }
     }
-    const getFlowers = async () => {
-        const flowers = await flowerAPI.getAll({'name': nameValue})
-        setFlower(flowers.data.slice(0, hiddenImage))
-        setLoading(false)
-    }
+    useEffect(()=>{
+        const getFlowers = async()=>
+        {
+            const data = await getDocs(productColectionRef);
+            setFlower(data.docs.map((doc)=>({...doc.data(), id:doc.id})));
+        };
+        getFlowers();
+    }, []);
     
     
     
-    useEffect(() => { getFlowers() }, [hiddenImage, nameValue])
     
     const changeURL =(id, price, name)=>
     {
@@ -66,11 +72,10 @@ function ResultSearch(props) {
     }
 
     return (
-        loading ? <div className='loading'><ClipLoader color='#D78536' loading={loading} size={30} /></div> :
         <>
             <div className='gallery'>
                 <div className='gallery-heading'>
-                    <div className='gallery-name'>Kết quả tìm kiếm cho <span>{nameValue}</span></div>
+                    <div className='gallery-name'>Kết quả tìm kiếm cho <span>{name}</span></div>
                 </div>
                 <div className='row'>
                     {renderFlower()}
