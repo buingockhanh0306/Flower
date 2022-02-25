@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { signInWithGoogle, signInWithFacebook, signInWithEmail, auth} from '../../../firebase-config'
-import { signInWithEmailAndPassword } from "firebase/auth"
+import { signInWithEmailAndPassword, onAuthStateChanged } from "firebase/auth"
 
 import { useState } from 'react';
 import './style.css'
@@ -8,10 +8,20 @@ import './style.css'
 function LoginForm(props) {
     const [loginEmail, setLoginEmail] = useState("")
     const [loginPassword, setLoginPassword] = useState("")
+    const [user, setUser] = useState({})
 
-    const signIn = e =>
-    {
-        auth.signInWithEmailAndPassword(loginEmail, loginPassword)
+    onAuthStateChanged(auth, (curentUser)=>{
+        setUser(curentUser)
+    })
+
+    const signIn = async (e) => {
+        try{
+            e.preventDefault ()
+            const user = await signInWithEmailAndPassword(auth, loginEmail, loginPassword)
+        }
+        catch (error) {
+            console.log(error.message);
+        }
     }
     
     return (
@@ -43,7 +53,7 @@ function LoginForm(props) {
                                 <input onChange={(e)=>setLoginPassword(e.target.value)} type="password" className="form-control" id="exampleInputPassword1" placeholder="Password" />
                             </div>
 
-                            <button onClick={()=>signInWithEmail(loginEmail, loginPassword)} type="submit" className="btn btn-primary">LOGIN</button>
+                            <button onClick={signIn} className="btn btn-primary">LOGIN</button>
                         </form>
                     </div>
                 </div>

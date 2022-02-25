@@ -3,7 +3,6 @@ import ButtonBlack from '../../Atoms/ButtonBlack';
 import './style.css'
 import { useNavigate } from 'react-router-dom';
 import ClipLoader from "react-spinners/ClipLoader";
-import flowerAPI from '../../../api/flowerAPI';
 import {db} from "../../../firebase-config.js"
 import {collection, getDocs} from "firebase/firestore"
 import {useParams} from "react-router-dom";

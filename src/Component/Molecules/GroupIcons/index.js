@@ -91,9 +91,15 @@ function GroupIcons(props) {
                                 </span>
                             </> :
                             <>
-                                <span data-toggle="modal" data-target="#login" className='login-logout-item'><i className="fa-solid fa-right-to-bracket"></i>Log in</span>
+                                <span data-toggle="modal" data-target="#login" className='login-logout-item'>
+                                    <i className="fa-solid fa-right-to-bracket"></i>
+                                    Log in
+                                </span>
                                 <hr />
-                                <span data-toggle="modal" data-target="#signup" className='login-logout-item'><i className="fa-solid fa-user-plus"></i>Sign up</span>
+                                <span data-toggle="modal" data-target="#signup" className='login-logout-item'>
+                                    <i className="fa-solid fa-user-plus"></i>
+                                    Sign up
+                                </span>
                             </>
                         }
                     </div>

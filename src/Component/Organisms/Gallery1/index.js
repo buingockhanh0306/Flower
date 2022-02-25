@@ -2,7 +2,6 @@ import React, {useEffect, useState} from 'react';
 import ImageCard from '../../Molecules/ImageCard';
 import axios from 'axios';
 import './style.css'
-import flowerAPI from '../../../api/flowerAPI';
 import ClipLoader from "react-spinners/ClipLoader";
 import {db} from "../../../firebase-config.js"
 import {collection, getDocs} from "firebase/firestore"

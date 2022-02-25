@@ -3,7 +3,7 @@ import Dropdown from '../../Atoms/Dropdown';
 import SelectItem from '../../Atoms/SelectItem';
 import './style.css'
 import { useEffect } from 'react';
-import flowerAPI from '../../../api/flowerAPI';
+// import flowerAPI from '../../../api/flowerAPI';
 import { useNavigate } from 'react-router-dom';
 
 
@@ -13,12 +13,12 @@ function GroupSelect(props) {
     const [flowers, setFlower] = useState([])
     const navigate = useNavigate();
     const category = localStorage.getItem('category')
-    const getFlowers = async () => {
-        const flowers = await flowerAPI.getAll()
-        setFlower(flowers.data)
-    }
+    // const getFlowers = async () => {
+    //     const flowers = await flowerAPI.getAll()
+    //     setFlower(flowers.data)
+    // }
 
-    useEffect(() => { getFlowers() }, [])
+    // useEffect(() => { getFlowers() }, [])
 
     // Lọc giá trị trùng nhau 
     const unique = (arr) => {

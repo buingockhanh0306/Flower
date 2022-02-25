@@ -3,7 +3,7 @@ import ButtonBlack from '../../Atoms/ButtonBlack';
 import './style.css'
 import { useNavigate } from 'react-router-dom';
 import ClipLoader from "react-spinners/ClipLoader";
-import flowerAPI from '../../../api/flowerAPI';
+// import flowerAPI from '../../../api/flowerAPI';
 
 
 
@@ -31,21 +31,21 @@ function ImageCategory(props) {
     }
 
     const color =localStorage.getItem('color')
-    const getFlowers = async () => {
-        const flowers = await flowerAPI.getAll({'category': props.category})
-        if(color==="Color")
-        {
-            setFlower(flowers.data)
-        }
-        else{
-            setFlower(flowers.data.filter(flower => flower.color === color).slice(0, hiddenImage))
-        }
-        setLoading(false)
-    }
+    // const getFlowers = async () => {
+    //     const flowers = await flowerAPI.getAll({'category': props.category})
+    //     if(color==="Color")
+    //     {
+    //         setFlower(flowers.data)
+    //     }
+    //     else{
+    //         setFlower(flowers.data.filter(flower => flower.color === color).slice(0, hiddenImage))
+    //     }
+    //     setLoading(false)
+    // }
     
     
     
-    useEffect(() => { getFlowers() }, [hiddenImage, color])
+    // useEffect(() => { getFlowers() }, [hiddenImage, color])
     
     const changeURL =(id, price, name)=>
     {
