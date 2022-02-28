@@ -28,3 +28,12 @@
     background-color: #3B5998;
     opacity: 1;
 }
+.modal-link
+{
+    display: flex;
+    justify-content: space-between;
+}
+.form-label
+{
+    color: red
+}

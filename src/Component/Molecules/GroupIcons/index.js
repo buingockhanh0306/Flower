@@ -73,11 +73,11 @@ function GroupIcons(props) {
                 <div className='avatar-user'>
                     {user?.photoURL ? <img className='avatar-user-img' src={user?.photoURL} /> : <img className='avatar-user-img' src='assets/images/avatar.png' />}
                     <div className='login-logout'>
-                        {user?.displayName ?
+                        {user?.displayName || user?.email ?
                             <>
                                 <span className='login-logout-item'>
-                                    <img src={user?.photoURL} />
-                                    <span className='name-user'>{user?.displayName}</span>
+                                    <img src={user?.photoURL || 'assets/images/avatar.png'} />
+                                    <span className='name-user'>{user?.displayName || user.email}</span>
                                 </span>
                                 <hr />
                                 <span data-toggle="modal" data-target="#login" className='login-logout-item'>

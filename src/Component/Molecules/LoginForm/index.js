@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { signInWithGoogle, signInWithFacebook, signInWithEmail, auth} from '../../../firebase-config'
+import { signInWithGoogle, signInWithFacebook, signInWithEmail, auth } from '../../../firebase-config'
 import { signInWithEmailAndPassword, onAuthStateChanged } from "firebase/auth"
 
 import { useState } from 'react';
@@ -8,22 +8,26 @@ import './style.css'
 function LoginForm(props) {
     const [loginEmail, setLoginEmail] = useState("")
     const [loginPassword, setLoginPassword] = useState("")
-    const [user, setUser] = useState({})
-
-    onAuthStateChanged(auth, (curentUser)=>{
+    const [user, setUser] = useState("")
+    const [error, setError] = useState("")
+    onAuthStateChanged(auth, (curentUser) => {
         setUser(curentUser)
     })
 
-    const signIn = async (e) => {
-        try{
-            e.preventDefault ()
-            const user = await signInWithEmailAndPassword(auth, loginEmail, loginPassword)
-        }
-        catch (error) {
-            console.log(error.message);
-        }
-    }
     
+    const signIn = async (event) => {
+        event.preventDefault()
+        signInWithEmailAndPassword(auth, loginEmail, loginPassword)
+            .then((userCredential) => {
+                const user = userCredential.user;
+            })
+            .catch((error) => {
+                console.log(error);
+               setError(error);
+            });
+    }
+
+
     return (
         <div className="modal fade" id="login" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div className="modal-dialog" role="document">
@@ -46,13 +50,13 @@ function LoginForm(props) {
                         <form>
                             <label htmlFor="exampleInputEmail1">----- OR -----</label>
                             <div className="form-group">
-                                <input onChange={(e)=>setLoginEmail(e.target.value)} type="email" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email" />
+                                <input onFocus={console.log('focus')} onChange={(e) => setLoginEmail(e.target.value)} type="email" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email" />
                             </div>
 
                             <div className="form-group">
-                                <input onChange={(e)=>setLoginPassword(e.target.value)} type="password" className="form-control" id="exampleInputPassword1" placeholder="Password" />
+                                <input onChange={(e) => setLoginPassword(e.target.value)} type="password" className="form-control" id="exampleInputPassword1" placeholder="Password" />
+                                {error === "" ? "" : <label className="form-label">Sai tên đăng nhập hoặc mật khẩu!</label>}
                             </div>
-
                             <button onClick={signIn} className="btn btn-primary">LOGIN</button>
                         </form>
                     </div>

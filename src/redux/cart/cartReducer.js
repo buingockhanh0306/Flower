@@ -1,7 +1,7 @@
 import * as actionTypes from './cartType'
 
 const initState ={
-    cart:[],
+    cart:[]
 }
 
 const cartLocal = localStorage.getItem('todoCart')
@@ -14,18 +14,19 @@ const cartReducer = (state=initState, action) =>
         const cart = state.cart
         const idx = cart.findIndex(item=> item.id === action.payload.id)
         idx === -1 ? cart.push({...action.payload, qty: 1}) : cart[idx].qty++
-        
         localStorage.setItem('todoCart', JSON.stringify(cart))
         return{
             ...state, 
             cart
             }
 
+
         case actionTypes.REMOVE_FROM_CART:
             return{
                 ...state, 
                 cart: state.cart.filter(item=>item.id !== action.payload.id)
             }
+
 
         case actionTypes.ADJUST_QTY:
             return{
