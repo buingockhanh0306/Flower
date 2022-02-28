@@ -51,7 +51,7 @@ function ResultSearch(props) {
         navigate(`/product`)
     }
     const renderFlower = () => {
-        return flowers.map(flower => (
+        return flowers.map(flower => flower.name.toLowerCase().includes(name.toLowerCase().trim(), 0) ? (
             <div key={flower.id} className='col-md-3 col-6' >
                 <div className='image-card'>
                     <img src={flower.imageURL} />
@@ -66,7 +66,7 @@ function ResultSearch(props) {
                     </div>
                 </div>
             </div>
-        ))
+        ):"")
 
     }
 

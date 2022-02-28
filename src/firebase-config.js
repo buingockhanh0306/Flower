@@ -19,12 +19,15 @@ export const auth = getAuth(app)
 export const db = getFirestore(app)
 const providerGoogle = new GoogleAuthProvider()
 const providerFacebook = new FacebookAuthProvider();
-export const signInWithGoogle = () => {
-  signInWithPopup(auth, providerGoogle)
+export const signInWithGoogle = async() => {
+  await signInWithPopup(auth, providerGoogle)
+  window.location.reload()
+
 }
 
-export const signInWithFacebook = () => {
-  signInWithPopup(auth, providerFacebook)
+export const signInWithFacebook = async() => {
+  await signInWithPopup(auth, providerFacebook)
+  window.location.reload()
 }
 
 export const signOutUser = () => {

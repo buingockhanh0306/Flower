@@ -28,6 +28,7 @@ function LoginForm(props) {
     }
 
 
+
     return (
         <div className="modal fade" id="login" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div className="modal-dialog" role="document">
@@ -50,7 +51,7 @@ function LoginForm(props) {
                         <form>
                             <label htmlFor="exampleInputEmail1">----- OR -----</label>
                             <div className="form-group">
-                                <input onFocus={console.log('focus')} onChange={(e) => setLoginEmail(e.target.value)} type="email" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email" />
+                                <input onChange={(e) => setLoginEmail(e.target.value)} type="email" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email" />
                             </div>
 
                             <div className="form-group">
