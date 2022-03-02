@@ -5,7 +5,6 @@ import './style.css'
 function NavBar(props) {
     const navigate = useNavigate()
     const changeURL = (path)=>{
-        const str = path.slice(1);
         navigate(path)
     }
     return (

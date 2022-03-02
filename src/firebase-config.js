@@ -1,6 +1,13 @@
 import { initializeApp } from "firebase/app";
 import { getFirestore } from "@firebase/firestore"
-import { getAuth, GoogleAuthProvider, FacebookAuthProvider, signInWithPopup, signOut, signInWithEmailAndPassword } from "firebase/auth"
+import {
+  getAuth, 
+  GoogleAuthProvider, 
+  FacebookAuthProvider, 
+  signInWithPopup, 
+  signOut
+} 
+from "firebase/auth"
 
 const firebaseConfig = {
   apiKey: "AIzaSyB7ueeNd1hWMYfug7btlUIh8pwuVJ0lAMM",
@@ -27,15 +34,11 @@ export const signInWithGoogle = async() => {
 
 export const signInWithFacebook = async() => {
   await signInWithPopup(auth, providerFacebook)
-  window.location.reload()
+
 }
+
 
 export const signOutUser = () => {
   signOut(auth)
-}
-
-export const signInWithEmail = (email, password)=>
-{
-  signInWithEmailAndPassword(email, password)
-  console.log('sign in with email');
+  window.location.reload()
 }

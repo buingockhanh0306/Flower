@@ -3,8 +3,6 @@ import { useNavigate } from 'react-router-dom';
 import { useState } from 'react';
 import './style.css'
 import { signOutUser } from '../../../firebase-config'
-import LoginForm from '../LoginForm';
-import SignUpForm from '../SignUpForm';
 import { auth } from '../../../firebase-config';
 import { onAuthStateChanged } from 'firebase/auth'
 
@@ -80,7 +78,7 @@ function GroupIcons(props) {
                                     <span className='name-user'>{user?.displayName || user.email}</span>
                                 </span>
                                 <hr />
-                                <span data-toggle="modal" data-target="#login" className='login-logout-item'>
+                                <span onClick={()=>navigate('/login')} className='login-logout-item'>
                                     <i className="fa-solid fa-arrow-right-arrow-left"></i>
                                     Change Account
                                 </span>
@@ -91,24 +89,15 @@ function GroupIcons(props) {
                                 </span>
                             </> :
                             <>
-                                <span data-toggle="modal" data-target="#login" className='login-logout-item'>
+                                <span onClick={()=>navigate('/login')} className='login-logout-item'>
                                     <i className="fa-solid fa-right-to-bracket"></i>
                                     Log in
                                 </span>
                                 <hr />
-                                <span data-toggle="modal" data-target="#signup" className='login-logout-item'>
-                                    <i className="fa-solid fa-user-plus"></i>
-                                    Sign up
-                                </span>
                             </>
                         }
                     </div>
 
-                    {/* Modal */}
-                    <SignUpForm />
-                    <LoginForm />
-
-                    {/* End Modal */}
 
 
                 </div>

@@ -5,47 +5,46 @@ import App from './App';
 import { BrowserRouter, Route, Routes, BrowserRouter as Router } from "react-router-dom";
 import reportWebVitals from './reportWebVitals';
 import store from './redux/store';
-import {Provider} from 'react-redux'
+import { Provider } from 'react-redux'
 import Home from './Component/Page/Home';
 import ProductCard from './Component/Page/ProductCard';
 import LayoutPage from './Component/Page/LayOut/LayoutPage/LayoutPage';
-import AllPlants from './Component/Page/ChildrenPage/AllPlants';
 import CheckOut from './Component/Page/CheckOut';
-import AllGift from './Component/Page/ChildrenPage/AllGift';
 import Disconts from './Component/Page/ChildrenPage/Disconts';
 import AboutUs from './Component/Page/ChildrenPage/AboutUs';
-import AllFlower from './Component/Page/ChildrenPage/AllFlower'
+import AllProduct from './Component/Page/ChildrenPage/AllFlower';
 import LayoutHome from './Component/Page/LayOut/LayoutHome';
 import SearchPage from './Component/Page/ChildrenPage/SearchPage';
+import LoginAndSignup from './Component/Page/LoginAndSignup';
 
 
 ReactDOM.render(
   <React.StrictMode>
-      <Provider store={store}>
-        <BrowserRouter>
-          <Routes>
+    <Provider store={store}>
+      <BrowserRouter>
+        <Routes>
 
-                <Route path='/' element={<LayoutHome/>}>
-              <Route path='/' element={<Home/>}/>
-                <Route path='/disconts' element={<Disconts/>}/>
-                <Route path='/about' element={<AboutUs/>}/>
-                <Route path='/search/:name' element={<SearchPage/>}/>
-              </Route>
+          <Route path='/' element={<LayoutHome />}>
+            <Route path='/' element={<Home />} />
+            <Route path='/disconts' element={<Disconts />} />
+            <Route path='/about' element={<AboutUs />} />
+            <Route path='/search/:name' element={<SearchPage />} />
+            <Route path='/login' element={<LoginAndSignup />} />
 
-
-              <Route path='/' element={<LayoutPage/>}>
-                <Route path='/flowers' element={<AllFlower/>}/>
-                <Route path='/plants' element={<AllPlants/>}/>
-                <Route path='/gifts' element={<AllGift/>}/>
-              </Route>
+            <Route path='/' element={<LayoutPage />}>
+              <Route path='/:category' element={<AllProduct />} />
+            </Route>
+          </Route>
 
 
-              <Route path='/product/:id' element={<ProductCard/>}/>
-              <Route path='/checkout' element={<CheckOut/>}/>
 
-          </Routes>
-        </BrowserRouter>
-          </Provider>
+
+          <Route path='/product/:id' element={<ProductCard />} />
+          <Route path='/checkout' element={<CheckOut />} />
+
+        </Routes>
+      </BrowserRouter>
+    </Provider>
   </React.StrictMode>,
   document.getElementById('root')
 );

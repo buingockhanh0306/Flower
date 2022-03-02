@@ -19,9 +19,10 @@
     background-color: #fff;
     display: none;
 }
-.sel{
+.select{
     display: inline-block;
     border: none;
     outline: none;
     cursor: pointer;
+    margin-right: 40px;
 }

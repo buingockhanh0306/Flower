@@ -1,10 +1,7 @@
 import React, { useState } from 'react';
-import Dropdown from '../../Atoms/Dropdown';
-import SelectItem from '../../Atoms/SelectItem';
 import './style.css'
 import { useEffect } from 'react';
-// import flowerAPI from '../../../api/flowerAPI';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 
 
 
@@ -12,7 +9,7 @@ function GroupSelect(props) {
 
     const [flowers, setFlower] = useState([])
     const navigate = useNavigate();
-    const category = localStorage.getItem('category')
+    const { category } = useParams()
     // const getFlowers = async () => {
     //     const flowers = await flowerAPI.getAll()
     //     setFlower(flowers.data)
@@ -37,7 +34,7 @@ function GroupSelect(props) {
     }
     const filterGroup =(value)=>
     {
-        navigate(`/${category}`)
+        navigate(`/${category}/${value}`)
     }
     const filterColor=(value)=>
     {
@@ -61,26 +58,7 @@ function GroupSelect(props) {
                     </select>
                 </div>
 
-                <div className='drop-list'>
-                    <select className='select' aria-label="Default select example">
-                        <option defaultValue=""></option>
-                        <option value="1">One</option>
-                    </select>
-                </div>
 
-                <div className='drop-list'>
-                    <select className='select' aria-label="Default select example">
-                        <option defaultValue=""></option>
-                        <option value="1">One</option>
-                    </select>
-                </div>
-
-                <div className='drop-list'>
-                    <select className='select' aria-label="Default select example">
-                        <option defaultValue=""></option>
-                        <option value="1">One</option>
-                    </select>
-                </div>
             </div>
             <div className='count'>{flowers.length} items</div>
         </>
