@@ -106,7 +106,6 @@ function LoginAndSignupForm(props) {
         signin.style.display = "block"
     }
 
-
     return (
         <div className='login'>
             <div className='login-form' id='login-form'>
@@ -114,8 +113,8 @@ function LoginAndSignupForm(props) {
                     <form name='signup' action="#">
                         <h1 className='login-title'>Create Account</h1>
 
-                        <input onChange={e => setRegisterEmail(e.target.value)} className='login-input' type="email" placeholder="Email" />
-                        <input onChange={e => setRegisterPassword(e.target.value)} className='login-input' type="password" placeholder="Password" />
+                        <input onChange={e => {setRegisterEmail(e.target.value); setError("")}} className='login-input' type="email" placeholder="Email" />
+                        <input onChange={e => {setRegisterPassword(e.target.value); setError("")}} className='login-input' type="password" placeholder="Password" />
                         {notify !=="" ? <span className='message notifyMessage'>{notify}</span> : (error !== "" ? <span className='message errMessage'>{error}</span> : "")}
                         <button type='submit' onClick={register} className='login-btn'>Sign Up</button>
                     </form>
@@ -130,8 +129,8 @@ function LoginAndSignupForm(props) {
                             <a onClick={signInWithGoogle} className="login-link social"><i className="fab fa-google-plus-g" /></a>
                         </div>
                         <span className='login-span'>or use your account</span>
-                        <input onChange={e => setLoginEmail(e.target.value)} className='login-input' type="email" placeholder="Email" />
-                        <input onChange={e => setLoginPassword(e.target.value)} className='login-input' type="password" placeholder="Password" />
+                        <input onChange={e => {setLoginEmail(e.target.value); setError("")}} className='login-input' type="email" placeholder="Email" />
+                        <input onChange={e => {setLoginPassword(e.target.value); setError("")}} className='login-input' type="password" placeholder="Password" />
                         {error !== "" ? <span className='message errMessage'>{error}</span> : ""}
                         <a onClick={() => handleForgot()} className='login-link'>Forgot your password?</a>
                         <button onClick={signIn} className='login-btn'>Sign In</button>
@@ -150,7 +149,7 @@ function LoginAndSignupForm(props) {
                         <h1 className='login-title'>Forgot Password</h1>
                         <div className='email-reset'>
                             <span className='login-span'>Enter your email</span>
-                            <input onChange={e => setForgotPassword(e.target.value)} className='login-input' type="email" placeholder="Email" />
+                            <input onChange={e => {setForgotPassword(e.target.value); setError("")}} className='login-input' type="email" placeholder="Email" />
                             {notify !=="" ? <span className='message notifyMessage'>{notify}</span> : (error !== "" ? <span className='message errMessage'>{error}</span> : "")}
                         </div>
                         <button onClick={handleResetPassword} className='login-btn reset'>reset password</button>
