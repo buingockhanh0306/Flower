@@ -136,7 +136,19 @@ form {
 .title-overlay
 {
 	color: #FF4B2B;
-	text-shadow: 0 0 3px #fff;
+	text-shadow: 0 0 5px #fff;
+}
+.message{
+	font-size: 12px;
+	margin: 20px 0;
+}
+.errMessage
+{
+	color: red;
+}
+.notifyMessage
+{
+	color: green;
 }
 
 @keyframes show {

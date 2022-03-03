@@ -19,30 +19,47 @@ function LoginAndSignupForm(props) {
     const [loginPassword, setLoginPassword] = useState("")
     const [registerEmail, setRegisterEmail] = useState("")
     const [registerPassword, setRegisterPassword] = useState("")
-    const [user, setUser] = useState("")
     const [error, setError] = useState("")
+    const [notify, setNotify] = useState("")
+    const [user, setUser] = useState("")
     const navigate = useNavigate()
 
     const container = document.getElementById('login-form');
     const forgot = document.querySelector('.forgot-container')
     const signin = document.querySelector('.sign-in-container')
 
-    const notify = () => toast("Đã thêm vào giỏ hàng");
 
     onAuthStateChanged(auth, (curentUser) => {
         setUser(curentUser)
     })
 
+
+    function ValidateEmail(inputText) {
+        var mailformat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+        return inputText.match(mailformat) ? true : false
+    }
+
+    function ValidatePassword(inputPass) {
+        var passwordFormat = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/;
+        return inputPass.match(passwordFormat) ? true : false
+    }
+
     const register = async (e) => {
         e.preventDefault()
-        try {
-
+        if (ValidateEmail(registerEmail) && ValidatePassword(registerPassword)) {
             const user = await createUserWithEmailAndPassword(auth, registerEmail, registerPassword)
+            setNotify("Sign up success!")
+            setError("")
         }
-        catch (error) {
-            console.log(error.message);
+        else if (!ValidateEmail(registerEmail)) {
+            setNotify("")
+            setError("You have entered an invalid email address")
         }
-        removeClass()
+        else {
+            setNotify("")
+            setError("Password must be minimum eight characters, at least one letter and one number")
+        }
+
 
     }
 
@@ -51,27 +68,30 @@ function LoginAndSignupForm(props) {
         signInWithEmailAndPassword(auth, loginEmail, loginPassword)
             .then((userCredential) => {
                 const user = userCredential.user;
+                navigate('/')
             })
-            .catch((error) => {
-                console.log(error);
-                setError(error);
+            .catch((err) => {
+                setError("Sai teen ")
             });
-        navigate('/')
     }
+
     const handleResetPassword = async (event) => {
         event.preventDefault()
-        sendPasswordResetEmail(auth, forgotPassword).then(() => {
-            notify()
-
-        })
-            .catch((error) => {
-                console.log(error)
-            })
+        if (ValidateEmail(forgotPassword)) {
+            sendPasswordResetEmail(auth, forgotPassword)
+            setNotify("Send")
+            setError("")
+        }
+        else {
+            setError("You have entered an invalid email address")
+            setNotify("")
+        }
     }
 
     const removeClass = () => {
         container.classList.remove("right-panel-active");
     }
+
     const addClass = () => {
         container.classList.add("right-panel-active");
     }
@@ -80,6 +100,7 @@ function LoginAndSignupForm(props) {
         forgot.style.display = "block"
         signin.style.display = "none"
     }
+
     const handleReturn = () => {
         forgot.style.display = "none"
         signin.style.display = "block"
@@ -90,12 +111,13 @@ function LoginAndSignupForm(props) {
         <div className='login'>
             <div className='login-form' id='login-form'>
                 <div className="form-container sign-up-container">
-                    <form action="#">
+                    <form name='signup' action="#">
                         <h1 className='login-title'>Create Account</h1>
 
                         <input onChange={e => setRegisterEmail(e.target.value)} className='login-input' type="email" placeholder="Email" />
                         <input onChange={e => setRegisterPassword(e.target.value)} className='login-input' type="password" placeholder="Password" />
-                        <button onClick={register} className='login-btn'>Sign Up</button>
+                        {notify !=="" ? <span className='message notifyMessage'>{notify}</span> : (error !== "" ? <span className='message errMessage'>{error}</span> : "")}
+                        <button type='submit' onClick={register} className='login-btn'>Sign Up</button>
                     </form>
                 </div>
 
@@ -110,6 +132,7 @@ function LoginAndSignupForm(props) {
                         <span className='login-span'>or use your account</span>
                         <input onChange={e => setLoginEmail(e.target.value)} className='login-input' type="email" placeholder="Email" />
                         <input onChange={e => setLoginPassword(e.target.value)} className='login-input' type="password" placeholder="Password" />
+                        {error !== "" ? <span className='message errMessage'>{error}</span> : ""}
                         <a onClick={() => handleForgot()} className='login-link'>Forgot your password?</a>
                         <button onClick={signIn} className='login-btn'>Sign In</button>
                     </form>
@@ -128,6 +151,7 @@ function LoginAndSignupForm(props) {
                         <div className='email-reset'>
                             <span className='login-span'>Enter your email</span>
                             <input onChange={e => setForgotPassword(e.target.value)} className='login-input' type="email" placeholder="Email" />
+                            {notify !=="" ? <span className='message notifyMessage'>{notify}</span> : (error !== "" ? <span className='message errMessage'>{error}</span> : "")}
                         </div>
                         <button onClick={handleResetPassword} className='login-btn reset'>reset password</button>
                         <span onClick={() => handleReturn()} className='return'><i className="fa-solid fa-angle-left"></i>Return Login</span>
