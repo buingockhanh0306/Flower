@@ -17,7 +17,6 @@ function ProductInfo(props) {
     const [flowers, setFlower] = useState([])
     const productColectionRef = collection(db, "products")
 
-    const [loading, setLoading] = useState(true)
     const dispatch = useDispatch()
     const notify = () => toast("Đã thêm vào giỏ hàng");
 

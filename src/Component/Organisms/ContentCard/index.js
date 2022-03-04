@@ -7,6 +7,8 @@ import './style.css'
 import { db } from "../../../firebase-config.js"
 import { collection, getDocs } from "firebase/firestore"
 import { Link } from 'react-router-dom';
+import ClipLoader from "react-spinners/ClipLoader"
+
 
 function ContentCard(props) {
     const [flowers, setFlower] = useState([])
@@ -18,6 +20,7 @@ function ContentCard(props) {
         const getFlowers = async () => {
             const data = await getDocs(productColectionRef);
             setFlower(data.docs.map((doc) => ({ ...doc.data(), id: doc.id })).filter(doc => doc.id === id));
+            setLoading(false)
         };
         getFlowers();
     }, []);
@@ -42,7 +45,7 @@ function ContentCard(props) {
             ))
         )
     }
-    return (
+    return loading ? <div className='loading'><ClipLoader color='#D78536' loading={loading} size={30} /></div> :(
         <>
             {renderHeaderCard()}
             <div className='row margin'>

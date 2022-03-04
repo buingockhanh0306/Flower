@@ -78,7 +78,8 @@ function ImageCategory(props) {
                     break;
                 default:
                     setFlower(data.docs.map((doc) => ({ ...doc.data(), id: doc.id })).filter(doc => doc.category === category));
-
+                setLoading(false)
+            
             }
         };
         getFlowers();
@@ -86,7 +87,9 @@ function ImageCategory(props) {
 
 
     const renderFlower = () => {
-        return flowers.length === 0 ? <h3 className='no-product_notify'>No Products Found</h3> : flowers.map(flower => (
+        return loading ? <div className='loading'><ClipLoader color='#D78536' loading={loading} size={30} /></div> :
+        flowers.length === 0 ? <h3 className='no-product_notify'>No Products Found</h3> : 
+        flowers.map(flower => (
             <div key={flower.id} className='col-md-3 col-6' >
                 <ImageCard id={flower.id} linkimg={flower.imageURL} name={flower.name} price={flower.price} />
             </div>

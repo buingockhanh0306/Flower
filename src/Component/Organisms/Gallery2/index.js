@@ -8,6 +8,7 @@ import {collection, getDocs} from "firebase/firestore"
 
 function Gallery2(props) {
     const [flowers, setFlower] = useState([])
+    const [loading, setLoading] = useState(true)
     const productColectionRef = collection(db, "products")
     const [x, setX] = useState(0);
 
@@ -17,12 +18,13 @@ function Gallery2(props) {
         {
             const data = await getDocs(productColectionRef);
             setFlower(data.docs.map((doc)=>({...doc.data(), id:doc.id})).filter(doc=>doc.category === "plants"));
+            setLoading(false)
         };
         getFlowers();
     }, []);
 
     const renderFlower = () => {
-        return(
+        return loading ? <div className='loading'><ClipLoader color='#D78536' loading={loading} size={30} /></div> :(
             flowers.map(flower => (
                 <div key={flower.id} className='col-md-3 col-6' >
                     <ImageCard id={flower.id} linkimg={flower.imageURL} name={flower.name} price={flower.price} />
