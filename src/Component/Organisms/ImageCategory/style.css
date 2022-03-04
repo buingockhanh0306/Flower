@@ -66,3 +66,9 @@
     cursor: pointer;
     margin-right: 40px;
 }
+.no-product_notify
+{
+    color: #888;
+    text-align: center;
+    margin: 60px 0;
+}
