@@ -93,7 +93,6 @@ function GroupIcons(props) {
                                     <i className="fa-solid fa-right-to-bracket"></i>
                                     Log in
                                 </span>
-                                <hr />
                             </>
                         }
                     </div>

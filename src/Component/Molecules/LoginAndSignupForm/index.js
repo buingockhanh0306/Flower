@@ -46,18 +46,23 @@ function LoginAndSignupForm(props) {
 
     const register = async (e) => {
         e.preventDefault()
-        if (ValidateEmail(registerEmail) && ValidatePassword(registerPassword)) {
-            const user = await createUserWithEmailAndPassword(auth, registerEmail, registerPassword)
-            setNotify("Sign up success!")
-            setError("")
-        }
-        else if (!ValidateEmail(registerEmail)) {
-            setNotify("")
-            setError("You have entered an invalid email address")
-        }
-        else {
-            setNotify("")
-            setError("Password must be minimum eight characters, at least one letter and one number")
+        try {
+            if (ValidateEmail(registerEmail) && ValidatePassword(registerPassword)) {
+                const user = await createUserWithEmailAndPassword(auth, registerEmail, registerPassword)
+                setNotify("Sign up success!")
+                setError("")
+            }
+            else if (!ValidateEmail(registerEmail)) {
+                setNotify("")
+                setError("You have entered an invalid email address")
+            }
+            else {
+                setNotify("")
+                setError("Password must be minimum eight characters, at least one letter and one number")
+            }
+
+        } catch (err) {
+            setError("Email already exist")
         }
 
 
@@ -90,10 +95,12 @@ function LoginAndSignupForm(props) {
 
     const removeClass = () => {
         container.classList.remove("right-panel-active");
+        setError("")
     }
 
     const addClass = () => {
         container.classList.add("right-panel-active");
+        setError("")
     }
 
     const handleForgot = () => {
@@ -113,9 +120,9 @@ function LoginAndSignupForm(props) {
                     <form name='signup' action="#">
                         <h1 className='login-title'>Create Account</h1>
 
-                        <input onChange={e => {setRegisterEmail(e.target.value); setError("")}} className='login-input' type="email" placeholder="Email" />
-                        <input onChange={e => {setRegisterPassword(e.target.value); setError("")}} className='login-input' type="password" placeholder="Password" />
-                        {notify !=="" ? <span className='message notifyMessage'>{notify}</span> : (error !== "" ? <span className='message errMessage'>{error}</span> : "")}
+                        <input onChange={e => { setRegisterEmail(e.target.value); setError(""); setNotify("") }} className='login-input' type="email" placeholder="Email" />
+                        <input onChange={e => { setRegisterPassword(e.target.value); setError(""); setNotify("") }} className='login-input' type="password" placeholder="Password" />
+                        {notify !== "" ? <span className='message notifyMessage'>{notify}</span> : (error !== "" ? <span className='message errMessage'>{error}</span> : "")}
                         <button type='submit' onClick={register} className='login-btn'>Sign Up</button>
                     </form>
                 </div>
@@ -129,8 +136,8 @@ function LoginAndSignupForm(props) {
                             <a onClick={signInWithGoogle} className="login-link social"><i className="fab fa-google-plus-g" /></a>
                         </div>
                         <span className='login-span'>or use your account</span>
-                        <input onChange={e => {setLoginEmail(e.target.value); setError("")}} className='login-input' type="email" placeholder="Email" />
-                        <input onChange={e => {setLoginPassword(e.target.value); setError("")}} className='login-input' type="password" placeholder="Password" />
+                        <input onChange={e => { setLoginEmail(e.target.value); setError("") }} className='login-input' type="email" placeholder="Email" />
+                        <input onChange={e => { setLoginPassword(e.target.value); setError("") }} className='login-input' type="password" placeholder="Password" />
                         {error !== "" ? <span className='message errMessage'>{error}</span> : ""}
                         <a onClick={() => handleForgot()} className='login-link'>Forgot your password?</a>
                         <button onClick={signIn} className='login-btn'>Sign In</button>
@@ -149,8 +156,8 @@ function LoginAndSignupForm(props) {
                         <h1 className='login-title'>Forgot Password</h1>
                         <div className='email-reset'>
                             <span className='login-span'>Enter your email</span>
-                            <input onChange={e => {setForgotPassword(e.target.value); setError("")}} className='login-input' type="email" placeholder="Email" />
-                            {notify !=="" ? <span className='message notifyMessage'>{notify}</span> : (error !== "" ? <span className='message errMessage'>{error}</span> : "")}
+                            <input onChange={e => { setForgotPassword(e.target.value); setError("") }} className='login-input' type="email" placeholder="Email" />
+                            {notify !== "" ? <span className='message notifyMessage'>{notify}</span> : (error !== "" ? <span className='message errMessage'>{error}</span> : "")}
                         </div>
                         <button onClick={handleResetPassword} className='login-btn reset'>reset password</button>
                         <span onClick={() => handleReturn()} className='return'><i className="fa-solid fa-angle-left"></i>Return Login</span>

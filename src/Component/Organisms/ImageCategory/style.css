@@ -34,3 +34,35 @@
 {
     margin-bottom: 50px;
 }
+.drop-list
+{
+    display: inline-block;
+    position: relative;
+}
+.drop-list:hover{
+    cursor: pointer;
+}
+.drop-list:hover .drop-down
+{
+    display: block;
+}
+.drop-down
+{
+    position: absolute;
+    top: 24px;
+    left: 0px;
+    z-index: 100;
+    background-color: #fff;
+    display: none;
+}
+.select-count{
+    display: flex;
+    justify-content: space-between;
+}
+.select{
+    display: inline-block;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    margin-right: 40px;
+}

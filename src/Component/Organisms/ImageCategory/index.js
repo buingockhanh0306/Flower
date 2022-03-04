@@ -15,10 +15,13 @@ function ImageCategory(props) {
     const [hiddenImage, setHiddenImage] = useState(4);
     const [textBtn, SetTextBtn] = useState('Load More')
     const productColectionRef = collection(db, "products")
+    const [valueFilter, setValueFilter] = useState("");
 
     const navigate = useNavigate();
 
-    const { category } = useParams()
+    const { category, filter } = useParams()
+
+
     const loadMore = () => {
         hiddenImage > 4 ? setHiddenImage(4) : (setHiddenImage(hiddenImage + hiddenImage))
         if (hiddenImage > 4) {
@@ -36,10 +39,20 @@ function ImageCategory(props) {
     useEffect(() => {
         const getFlowers = async () => {
             const data = await getDocs(productColectionRef);
-            setFlower(data.docs.map((doc) => ({ ...doc.data(), id: doc.id })).filter(doc => doc.category === category));
+            switch (valueFilter) {
+                case "last":
+                    setFlower(data.docs.map((doc) => ({ ...doc.data(), id: doc.id })).filter(doc => doc.category === category).sort());
+                    break;
+                case "old":
+                    setFlower(data.docs.map((doc) => ({ ...doc.data(), id: doc.id })).filter(doc => doc.category === category).reverse());
+                    break;
+                default:
+                    setFlower(data.docs.map((doc) => ({ ...doc.data(), id: doc.id })).filter(doc => doc.category === category));
+
+            }
         };
         getFlowers();
-    }, [category]);
+    }, [category, valueFilter]);
 
 
     const renderFlower = () => {
@@ -53,6 +66,30 @@ function ImageCategory(props) {
 
     return (
         <>
+            <div className='select-count'>
+                    <div className='group-select'>
+                        <div className='drop-list'>
+                            <select onChange={e => setValueFilter(e.target.value)} className='select' aria-label="Default select example">
+                                <option defaultValue="">Sort By</option>
+                                <option value="last">Lastest</option>
+                                <option value="old">Oldest</option>
+                            </select>
+                        </div>
+
+                        <div className='drop-list'>
+                            <select onChange={(e) => setValueFilter(e.target.value)} className='select' aria-label="Default select example">
+                                <option defaultValue="price">Price</option>
+                                <option value="under">Under $10</option>
+                                <option value="10to50">$10 - $50</option>
+                                <option value="50to100">$50 - $100</option>
+                                <option value="over">Over $100</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div className='count'>{flowers.length} items</div>
+            </div>
+            <div className='line'></div>
+
             <div className='gallery'>
                 <div className='gallery-heading'>
                     <div className='gallery-name'>{props.galleryname}</div>

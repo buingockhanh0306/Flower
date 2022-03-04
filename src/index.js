@@ -32,7 +32,9 @@ ReactDOM.render(
             <Route path='/login' element={<LoginAndSignup />} />
 
             <Route path='/' element={<LayoutPage />}>
-              <Route path='/:category' element={<AllProduct />} />
+              <Route path='/:category' element={<AllProduct /> }>
+                <Route path='/:category/:filter'/>
+              </Route>
             </Route>
           </Route>
 
