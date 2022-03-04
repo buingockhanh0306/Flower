@@ -57,6 +57,7 @@
     border:none;
     outline: none;
     background-color: transparent;
+    display: none;
 }
 .delete-icon i{
     color: red;

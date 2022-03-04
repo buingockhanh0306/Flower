@@ -5,12 +5,14 @@ import './style.css'
 import { signOutUser } from '../../../firebase-config'
 import { auth } from '../../../firebase-config';
 import { onAuthStateChanged } from 'firebase/auth'
+import { useSelector } from 'react-redux';
 
 function GroupIcons(props) {
     const navigate = useNavigate();
-
+    const cartSelector = useSelector((state) => state.cart.cart)
     const [user, setUser] = useState({})
 
+    console.log(cartSelector.length);
     onAuthStateChanged(auth, (curentUser) => {
         setUser(curentUser)
     })
@@ -65,7 +67,10 @@ function GroupIcons(props) {
                 </button>
 
                 <button onClick={() => changeURL()} className='cart-icon'>
-                    <i className="fas fa-shopping-cart"></i>
+                    <div className='cart'>
+                        <i className="fas fa-shopping-cart"></i>
+                        {cartSelector.length ===0 || <div className='circle-red'>{cartSelector.length}</div>}
+                    </div>
                 </button>
 
                 <div className='avatar-user'>
@@ -78,7 +83,7 @@ function GroupIcons(props) {
                                     <span className='name-user'>{user?.displayName || user.email}</span>
                                 </span>
                                 <hr />
-                                <span onClick={()=>navigate('/login')} className='login-logout-item'>
+                                <span onClick={() => navigate('/login')} className='login-logout-item'>
                                     <i className="fa-solid fa-arrow-right-arrow-left"></i>
                                     Change Account
                                 </span>
@@ -89,7 +94,7 @@ function GroupIcons(props) {
                                 </span>
                             </> :
                             <>
-                                <span onClick={()=>navigate('/login')} className='login-logout-item'>
+                                <span onClick={() => navigate('/login')} className='login-logout-item'>
                                     <i className="fa-solid fa-right-to-bracket"></i>
                                     Log in
                                 </span>

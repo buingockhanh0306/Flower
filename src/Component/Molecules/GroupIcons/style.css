@@ -50,6 +50,25 @@
     display: none;
     animation: handleRotate linear 0.2s;
 }
+.cart{
+    position: relative;
+}
+.circle-red
+{
+    position: absolute;
+    width: 16px;
+    height: 16px;
+    background-color: red;
+    top: 10px;
+    left: 10px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    font-size: 10px;
+    font-weight: 600;
+}
 @keyframes handleRotate
 {
     from{
