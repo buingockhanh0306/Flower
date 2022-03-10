@@ -23,3 +23,24 @@
 .medium-btn:hover{
     cursor: pointer;
 }
+@media only screen and (min-width: 46.25em) and (max-width: 63.9375em)
+{
+ 
+}
+
+/* Mobile */
+@media only screen and (max-width: 46.1875em)
+{
+    .medium-title{
+        font-size: 16px;
+    }
+    .medium-content
+    {
+        top: 60%;
+        left: 50%;
+    }
+    .medium-desc{
+        margin: 6px 0 12px;
+    }
+    
+}

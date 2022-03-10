@@ -13,15 +13,16 @@
 {
     width: 100%;
 }
+.image-card_img img{
+    background-color: #DBD0C1;
+    width: 100% !important;
+    height: 100% !important;
+}
 .image-card_img{
     position: relative;
 
 }
-.image-card img{
-    background-color: #DBD0C1;
-    width: 260px !important;
-    height: 260px !important;
-}
+
 .flower-name{
     border: none;
     outline: none;
@@ -63,4 +64,16 @@
     background-color: #fff;
     border: none;
     outline: none;
+}
+@media only screen and (min-width: 46.25em) and (max-width: 63.9375em)
+{
+ 
+}
+
+/* Mobile */
+@media only screen and (max-width: 46.1875em)
+{
+  .image-card_icon{
+      display: none;
+  }
 }

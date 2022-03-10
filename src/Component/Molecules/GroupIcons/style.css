@@ -155,3 +155,19 @@
 .name-user{
     font-weight: 500;
 }
+/* Tablet */
+@media only screen and (min-width: 46.25em) and (max-width: 63.9375px)
+{
+ 
+}
+
+/* Mobile */
+@media only screen and (max-width: 46.1875em)
+{
+  .avatar-user{
+    display: none;
+  }
+  .cart-icon{
+      margin-right: 0;
+  }
+}

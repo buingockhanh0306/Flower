@@ -9,7 +9,7 @@ function LayoutPage(props) {
     const {category} = useParams()
     return (
         <div className="grid">
-            <div className='container-md'>
+            <div className='container-md over'>
                 <HeaderChild text={category}/>
                 <Title text={category}/>
                 <Outlet/>

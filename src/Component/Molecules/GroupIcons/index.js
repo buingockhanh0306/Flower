@@ -12,7 +12,6 @@ function GroupIcons(props) {
     const cartSelector = useSelector((state) => state.cart.cart)
     const [user, setUser] = useState({})
 
-    console.log(cartSelector.length);
     onAuthStateChanged(auth, (curentUser) => {
         setUser(curentUser)
     })
