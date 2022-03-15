@@ -44,7 +44,6 @@
 }
 
 .open{
-
 }
 .close{
     display: none;
@@ -87,7 +86,7 @@
         opacity: 1;
     }
 }
-.active{
+.search-active{
     display: inline-block;
 }
 .avatar-user-img{

@@ -38,17 +38,19 @@ function GroupIcons(props) {
         const input_search = document.querySelector('.input-search')
         const open = document.querySelector('.open')
         const close = document.querySelector('.close')
-        const active = document.querySelector(".active")
+        const active = document.querySelector(".search-active")
+        console.log(active);
         if (active === null) {
+            console.log('vao day ');
             open.style.display = "none";
             close.style.display = "block";
-            input_search_group.classList.add("active")
+            input_search_group.classList.add("search-active")
             input_search.focus()
         }
         else {
             open.style.display = "block";
             close.style.display = "none";
-            input_search_group.classList.remove("active")
+            input_search_group.classList.remove("search-active")
         }
     }
     return (
@@ -68,7 +70,7 @@ function GroupIcons(props) {
                 <button onClick={() => changeURL()} className='cart-icon'>
                     <div className='cart'>
                         <i className="fas fa-shopping-cart"></i>
-                        {cartSelector.length ===0 || <div className='circle-red'>{cartSelector.length}</div>}
+                        {cartSelector.length === 0 || <div className='circle-red'>{cartSelector.length}</div>}
                     </div>
                 </button>
 
