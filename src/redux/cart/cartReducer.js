@@ -22,9 +22,11 @@ const cartReducer = (state=initState, action) =>
 
 
         case actionTypes.REMOVE_FROM_CART:
+            const cartFilter = state.cart.filter(item=>item.id !== action.payload.id)
+            localStorage.setItem('todoCart', JSON.stringify(cartFilter))
             return{
                 ...state, 
-                cart: state.cart.filter(item=>item.id !== action.payload.id)
+                cart: cartFilter
             }
 
 
