@@ -2,7 +2,6 @@ import React from 'react';
 import Heading from '../../Atoms/Heading';
 import { useState, useEffect, useMemo} from 'react';
 import './style.css'
-import axios from 'axios';
 import OrderTotal from '../../Molecules/OrderTotal';
 import { useDispatch, useSelector } from 'react-redux';
 import { adjustQty, RemoveFromCart } from '../../../redux/cart/cartAction';
@@ -74,6 +73,7 @@ function CheckOutProduct(props) {
         ))
         
     }
+
 
     return (
         <div className='checkout-checkout'>
