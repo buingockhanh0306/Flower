@@ -1,18 +1,17 @@
 import React from 'react';
-import { Outlet } from 'react-router-dom';
+import { Outlet, useParams } from 'react-router-dom';
 import HeaderChild from '../../../Organisms/HeaderChild';
 import Title from '../../../Atoms/Title';
-import SelectAndCount from '../../../Organisms/SelectAndCount';
+
+
 
 function LayoutPage(props) {
-    const category = localStorage.getItem('category')
+    const {category} = useParams()
     return (
         <div className="grid">
-            <div className='container-md'>
+            <div className='container-md over'>
                 <HeaderChild text={category}/>
-                <Title title='All Plants'/>
-                <SelectAndCount/>
-                <div className='line'></div>
+                <Title text={category}/>
                 <Outlet/>
             </div>
         </div>

@@ -13,3 +13,16 @@
 .navbar li:hover{
     cursor: pointer;
 }
+/* Tablet */
+@media only screen and (min-width: 46.25em) and (max-width: 63.9375px)
+{
+ 
+}
+
+/* Mobile */
+@media only screen and (max-width: 46.1875em)
+{
+  .navbar{
+    display: none;
+  }
+}

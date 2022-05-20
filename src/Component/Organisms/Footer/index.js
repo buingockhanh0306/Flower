@@ -9,20 +9,20 @@ function Footer(props) {
     return (
     <div className='footer'>
         <div className='container-md'>
-            <div className='row'>
-                <div className='col md-3'>
+            <div className='row flex'>
+                <div className='col-6 col-md-3'>
                     <GroupItem1/>
                 </div>
 
-                <div className='col md-3'>
+                <div className='col-6 col-md-3'>
                     <GroupItem2/>
                 </div>
 
-                <div className='col md-3'>
+                <div className='col-6 col-md-3'>
                     <GroupItem3/>
                 </div>
 
-                <div className='col md-3'>
+                <div className='col-6 col-md-3'>
                     <GroupItem4/>
                 </div>
             </div>

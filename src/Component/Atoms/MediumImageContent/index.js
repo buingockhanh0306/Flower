@@ -9,7 +9,7 @@ function MediumImageContent(props) {
             <span className='medium-desc'>{props.desc}</span>
             <Link to ={props.toLink} className='medium-btn'>
                 View now
-                <i class="arr fas fa-long-arrow-alt-right"></i>
+                <i className="arr fas fa-long-arrow-alt-right"></i>
             </Link>
         </div>
     );

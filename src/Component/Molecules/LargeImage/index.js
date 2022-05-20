@@ -11,7 +11,7 @@ function LargeImage(props) {
                 <span className='content-desc'>Best deals this week. Fresh flower, plants and gifts</span>
                 <Link to='/flowers' className='content-btn'>
                     Shop now
-                    <i class="arr fas fa-long-arrow-alt-right"></i>
+                    <i className="arr fas fa-long-arrow-alt-right"></i>
                 </Link>
             </div>
         </div>

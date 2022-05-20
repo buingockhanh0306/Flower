@@ -5,9 +5,7 @@ import './style.css'
 function NavBar(props) {
     const navigate = useNavigate()
     const changeURL = (path)=>{
-        const str = path.slice(1);
         navigate(path)
-        localStorage.setItem('category',str.charAt(0).toUpperCase() + str.slice(1))
     }
     return (
         <div className='navbar'>

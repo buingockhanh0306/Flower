@@ -1,0 +1,153 @@
+.group-icon-header {
+  display: flex;
+  justify-content: flex-end;
+  line-height: 56px;
+  height: 56px;
+  margin-top: 0;
+}
+.search-icon,
+.cart-icon {
+  margin-right: 24px;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  width: 24px;
+  outline: none;
+  border: none;
+  background-color: transparent;
+}
+.input-search-group {
+  display: none;
+}
+.input-search {
+  height: 26px;
+  border: none;
+  border-bottom: 1px solid #000;
+  outline: none;
+  margin-right: 10px;
+  width: 170px;
+  animation: hiddenSearch linear 0.8s;
+}
+.search-btn {
+  outline: none;
+  border: none;
+  background-color: transparent;
+}
+.search-btn i {
+  color: blue;
+}
+
+.open {
+  display: block;
+}
+.close {
+  display: none;
+}
+.cart {
+  position: relative;
+}
+.circle-red {
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  background-color: red;
+  top: 10px;
+  left: 10px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+  font-size: 10px;
+  font-weight: 600;
+}
+
+@keyframes hiddenSearch {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+.search-active {
+  display: inline-block;
+}
+.avatar-user-img {
+  width: 40px !important;
+  height: 40px !important;
+  border-radius: 50%;
+  outline: none;
+  border: none;
+  background-color: #f1f1f1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 8px;
+  position: relative;
+}
+.avatar-user {
+  position: relative;
+}
+.avatar-user:hover .login-logout {
+  display: block;
+  cursor: pointer;
+}
+.login-logout {
+  background-color: #e9e9e7;
+  width: 186px;
+  position: absolute;
+  top: 50px;
+  right: 0;
+  text-align: left;
+  border-radius: 4px;
+  display: none;
+  z-index: 1000;
+}
+.login-logout::before {
+  content: "";
+  display: block;
+  width: 70px;
+  height: 30px;
+  background-color: transparent;
+  top: -20px;
+  right: 0px;
+  position: absolute;
+}
+.login-logout-item {
+  display: block;
+  line-height: 1.6;
+  padding: 10px 10px;
+}
+.login-logout-item i {
+  width: 30px;
+  display: inline-block;
+}
+.login-logout hr {
+  margin: 0;
+}
+.logout {
+  color: red;
+}
+.login-logout-item img {
+  width: 30px !important;
+  height: 30px !important;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+.name-user {
+  font-weight: 500;
+}
+/* Tablet */
+@media only screen and (min-width: 46.25em) and (max-width: 63.9375px) {
+}
+
+/* Mobile */
+@media only screen and (max-width: 46.1875em) {
+  .avatar-user {
+    display: none;
+  }
+  .cart-icon {
+    margin-right: 0;
+  }
+}

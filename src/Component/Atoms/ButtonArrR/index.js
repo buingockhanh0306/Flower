@@ -6,7 +6,7 @@ function ButtonArrR(props) {
         <div> 
             <button className='btnR'>
                 <p className='btnR-text'>{props.text}</p>
-                <i class="fas fa-long-arrow-alt-right"></i>
+                <i className="fas fa-long-arrow-alt-right"></i>
             </button>
         </div>
     );

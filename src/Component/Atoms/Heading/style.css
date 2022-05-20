@@ -1,7 +1,7 @@
 .heading{
     font-weight: 500;
     display: inline-block;
-    text-decoration: none;
+    text-decoration: none !important;
     color: #000;
 }
 .heading:hover{
