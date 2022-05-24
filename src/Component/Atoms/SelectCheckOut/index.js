@@ -5,7 +5,7 @@ function SelectCheckOut(props) {
     return (
         <div className='select-checkout'>
             <p>{props.text}</p>
-            <i class="fas fa-caret-down"></i>
+            <i className="fas fa-caret-down"></i>
         </div>
     );
 }

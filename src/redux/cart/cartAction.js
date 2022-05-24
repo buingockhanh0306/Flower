@@ -1,12 +1,10 @@
 import * as actionTypes from './cartType'
 
-export const addToCart = (itemID) =>
+export const addToCart = (item) =>
 {
     return {
         type: actionTypes.ADD_TO_CART,
-        payload:{
-            id: itemID
-        }
+        payload: item
     }
 }
 

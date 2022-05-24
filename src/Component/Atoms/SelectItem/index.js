@@ -5,7 +5,7 @@ function SelectItem(props) {
     return (
         <div className='select-item'>
             <span className='select-text'>{props.text}</span>
-            <div className='arrow-icon'><i class="fas fa-caret-down"></i></div>
+            <div className='arrow-icon'><i className="fas fa-caret-down"></i></div>
         </div>
     );
 }

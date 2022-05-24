@@ -63,15 +63,15 @@ function AboutUs(props) {
             <div className="row">
                 <div className="col-6 about-text">
                     <div className='contact-item'>
-                        <i class="fa-solid fa-location-dot"></i>
+                        <i className="fa-solid fa-location-dot"></i>
                         <span>07th Floor, Golden Field Building, 24 Nguyen Co Thach Street, Hanoi, Vietnam </span>
                     </div>
                     <div className='contact-item'>
-                        <i class="fa-solid fa-phone"></i>
+                        <i className="fa-solid fa-phone"></i>
                         <span>Phone: +(84).839.716.099</span>
                     </div>
                     <div className='contact-item'>
-                        <i class="fa-solid fa-envelope"></i>
+                        <i className="fa-solid fa-envelope"></i>
                         <span>Email: khanhbn@reactplus.jp</span>
                     </div>
 

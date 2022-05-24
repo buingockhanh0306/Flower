@@ -16,7 +16,7 @@ function ButtonArrL(props) {
     return (
         <div> 
             <button onClick={changeURL} className='btnL'>
-                <i class="fas fa-long-arrow-alt-left"></i>
+                <i className="fas fa-long-arrow-alt-left"></i>
                 <p className='btnL-text'>{props.text}</p>
             </button>
         </div>

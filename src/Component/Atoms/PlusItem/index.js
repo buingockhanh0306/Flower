@@ -6,7 +6,7 @@ function PlusItem(props) {
         <div className='plus-item'>
             <div className='item-content'>
                 <span className='item-text'>{props.text}</span>
-                <div className='plus-icon'><i class="fas fa-plus"></i></div>
+                <div className='plus-icon'><i className="fas fa-plus"></i></div>
             </div>
             <div className='line'></div>
         </div>

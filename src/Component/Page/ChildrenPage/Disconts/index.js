@@ -5,10 +5,10 @@ import { Link } from 'react-router-dom';
 
 function Disconts(props) {
     return (
-        <div class="container disconts">
-            <h2 class='disconts-heading'>DISCONTS</h2>
-            <div class="row">
-                <div class="col-6 disconts-text">
+        <div className="container disconts">
+            <h2 className='disconts-heading'>DISCONTS</h2>
+            <div className="row">
+                <div className="col-6 disconts-text">
                     <p>
                         Containers center and horizontally pad your content. Use
                         .container for a responsive pixel width, .container-fluid
@@ -29,17 +29,17 @@ function Disconts(props) {
                     </p>
                     <Link to='/' className='content-btn'>
                         Shop now
-                        <i class="arr disconts-arr fas fa-long-arrow-alt-right"></i>
+                        <i className="arr disconts-arr fas fa-long-arrow-alt-right"></i>
                     </Link>
                 </div>
-                <div class="col-6 disconts-img">
+                <div className="col-6 disconts-img">
                     <img src='assets/images/disconts1.jpg' />
                 </div>
             </div>
 
-            <h2 class='disconts-heading'>BIGEST SALE</h2>
-            <div class="row dirc">
-                <div class="col-6 disconts-text">
+            <h2 className='disconts-heading'>BIGEST SALE</h2>
+            <div className="row dirc">
+                <div className="col-6 disconts-text">
                     <p>
                         Containers center and horizontally pad your content. Use
                         .container for a responsive pixel width, .container-fluid
@@ -60,10 +60,10 @@ function Disconts(props) {
                     </p>
                     <Link to='/' className='content-btn'>
                         Shop now
-                        <i class="arr disconts-arr fas fa-long-arrow-alt-right"></i>
+                        <i className="arr disconts-arr fas fa-long-arrow-alt-right"></i>
                     </Link>
                 </div>
-                <div class="col-6 disconts-img">
+                <div className="col-6 disconts-img">
                     <img src='assets/images/disconts.jpg' />
                 </div>
             </div>
