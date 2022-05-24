@@ -46,7 +46,7 @@ function ProductInfo(props) {
     navigate(`/checkout`);
   };
   const renderFlower = () => {
-    return flowers.map((flower) => (
+    return flowers?.map((flower) => (
       <div key={flower.id}>
         <Heading categoryName={flower.name} text={flower.name} />
         <Price priceNew={flower.price} />
