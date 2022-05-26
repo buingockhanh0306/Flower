@@ -1,6 +1,5 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { BrowserRouter, useNavigate, useParams } from "react-router-dom";
-import { useState } from "react/cjs/react.development";
 import PlusItem from "../../Atoms/PlusItem";
 import Price from "../../Atoms/Price";
 import "./style.css";
@@ -51,7 +50,6 @@ function ProductInfo(props) {
         <Heading categoryName={flower.name} text={flower.name} />
         <Price priceNew={flower.price} />
         <div className="line"></div>
-        {/* <CountGroup /> */}
         <div>Color: </div>
         <ButtonColor />
         <div className="order">
