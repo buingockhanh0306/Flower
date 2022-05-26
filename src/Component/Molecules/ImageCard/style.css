@@ -1,79 +1,73 @@
-.card-text
-{
-    text-align: center;
-    margin-top: 20px;
-    font-weight: 600;
+.card-text {
+  text-align: center;
+  margin-top: 20px;
+  font-weight: 600;
 }
-.flower-price
-{
-    display: inline-block;
-    margin-right: 6px;
+.flower-price {
+  display: inline-block;
+  margin-right: 6px;
 }
-.image-card
-{
-    width: 100%;
+.image-card {
+  width: 100%;
 }
-.image-card_img img{
-    background-color: #DBD0C1;
-    width: 100% !important;
-    height: 100% !important;
+.image-card_img img {
+  background-color: #dbd0c1;
+  width: 100% !important;
+  height: 100% !important;
 }
-.image-card_img{
-    position: relative;
-
+.image-card_img {
+  position: relative;
 }
 
-.flower-name{
-    border: none;
-    outline: none;
-    background-color: transparent;
-    display: block;
-    margin: 0 auto;
-    font-weight: 500;
+.flower-name {
+  border: none;
+  outline: none;
+  background-color: transparent;
+  display: block;
+  margin: 0 auto;
+  font-weight: 500;
 }
-.flower-name:hover{
-    color: #666;
+.flower-name:hover {
+  color: #666;
 }
-.image-card_icon{
-    position: absolute;
-    width: 100px;
-    justify-content: space-between;
-    bottom: 40px;
-    left: 80px;
-    display: none;
-    animation: fadeIn ease 0.3s;
-   
-    
+.image-card_icon {
+  position: absolute;
+  width: 100px;
+  justify-content: space-between;
+  bottom: 40px;
+  left: 80px;
+  display: none;
+  animation: fadeIn ease 0.3s;
+}
+.heart-active {
+  color: red;
 }
 @keyframes fadeIn {
-    from{
-        transform: translateY(100%);
-        opacity: 0
-    }
-    to{
-        transform: translateY(0);
-        opacity: 1
-    }
+  from {
+    transform: translateY(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
 }
-.image-card_img:hover .image-card_icon{
-    display: flex;
-    cursor: pointer;
+.image-card_img:hover .image-card_icon {
+  display: flex;
+  cursor: pointer;
 }
-.image-card_icon-item{
-    padding: 8px 11px;
-    background-color: #fff;
-    border: none;
-    outline: none;
+.image-card_icon-item {
+  padding: 8px 11px;
+  background-color: #fff;
+  border: none;
+  outline: none;
 }
-@media only screen and (min-width: 46.25em) and (max-width: 63.9375em)
-{
- 
+@media only screen and (min-width: 46.25em) and (max-width: 63.9375em) {
 }
 
 /* Mobile */
-@media only screen and (max-width: 46.1875em)
-{
-  .image-card_icon{
-      display: none;
+@media only screen and (max-width: 46.1875em) {
+  .image-card_icon {
+    display: none;
   }
 }
