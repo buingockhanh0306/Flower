@@ -1,12 +1,15 @@
-.checkout-address{
-    margin-top: 40px;
+.checkout-address {
+  margin-top: 40px;
+  display: flex;
+  justify-content: space-between;
 }
-.select{
-    display: flex;
-    justify-content: space-between;
+.select-checkout {
+  display: flex;
+  justify-content: space-between;
+  margin: 0;
+  margin-left: 20px;
 }
-.address{
-    flex: 3;
-    margin-left: 30px;
+.address {
+  /* flex: 3; */
+  margin-left: 30px;
 }
-
