@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { BrowserRouter, useNavigate, useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import PlusItem from "../../Atoms/PlusItem";
 import Price from "../../Atoms/Price";
 import "./style.css";
