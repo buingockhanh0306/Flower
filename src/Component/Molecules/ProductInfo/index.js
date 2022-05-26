@@ -12,7 +12,7 @@ import { addToCart } from "../../../redux/cart/cartAction";
 import { db } from "../../../firebase-config.js";
 import { collection, getDocs } from "firebase/firestore";
 
-function ProductInfo(props) {
+function ProductInfo() {
   const [flowers, setFlower] = useState([]);
   const productColectionRef = collection(db, "products");
 
