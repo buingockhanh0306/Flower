@@ -70,4 +70,13 @@
   .image-card_icon {
     display: none;
   }
+  .image-card_img:hover .image-card_icon {
+    display: none;
+  }
+  .flower-price {
+    display: none;
+  }
+  .price-icon {
+    display: none;
+  }
 }

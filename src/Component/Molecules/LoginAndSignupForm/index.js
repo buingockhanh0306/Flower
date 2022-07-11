@@ -41,7 +41,7 @@ function LoginAndSignupForm(props) {
 
     function ValidatePassword(inputPass) {
         var passwordFormat = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/;
-        return inputPass.match(passwordFormat) ? true : false
+        return inputPass.match(passwordFormat) ? false : true
     }
 
     const register = async (e) => {

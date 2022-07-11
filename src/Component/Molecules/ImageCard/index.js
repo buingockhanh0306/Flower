@@ -22,9 +22,7 @@ function ImageCard(props) {
         <img src={props.linkimg} />
         <div className="image-card_icon">
           <button
-            onClick={() =>
-              heartActive ? setHeartActive(false) : setHeartActive(true)
-            }
+            onClick={() => setHeartActive(!heartActive)}
             className="image-card_icon-item"
           >
             <i
@@ -46,7 +44,7 @@ function ImageCard(props) {
           {props.name}
         </button>
         <div className="flower-price">{props.price}</div>
-        <span>
+        <span className="price-icon">
           <i className="fas fa-dollar-sign"></i>
         </span>
       </div>
